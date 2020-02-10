@@ -42,6 +42,7 @@ public class Ordena {
         return "Hay "+ numeros.size()+ " números"
                 + ": " + numeros; //o +numeros.toString()
     }
+    
     /**
      * Punto de entrada a la aplicación.
      *

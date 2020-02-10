@@ -1,8 +1,9 @@
 /**
-* Esta aplicación ...
+* Esta aplicación comprueba cada numero en una lista es primo
+* e imprime todos los primos encontrados hasta el mayor de esos numeros
 *
-* @author Laura de Paz laura.pazc@uam.es
-* @author Rubén García ruben.garciadelafuente@uam.es
+* @author Laura de Paz Carbajo laura.pazc@uam.es
+* @author Rubén García de la Fuente ruben.garciadelafuente@uam.es
 *
 */
 
@@ -44,10 +45,7 @@ public class Primos {
     }
 
 
-    /*
-    Completa los métodos actualizaPrimos y compruebaPrimo
-     */
-
+    
     /**
      * Este método llama a compruebaPrimo, y lo añade, si es primo,
      * para todos los números entre max+1 y n. Actualiza max al terminar.
@@ -75,6 +73,13 @@ public class Primos {
     }
 
     
+    /**
+     * Punto de entrada a la aplicación.
+     *
+     * Este comprueba si los números de la línea de comando son primos
+     * Al final imprime todos los primos hasta el número más grande pasado
+     * @param args Los argumentos de la línea de comando. Se esperan números enteros, como cadenas
+     */
     public static void main(String[] args){
         if (args.length < 1){
             System.out.println("Se espera al menos un número como parámetro");
@@ -85,8 +90,9 @@ public class Primos {
                 boolean b = pr.esPrimo(Integer.parseInt(s));
                 if (b == true) System.out.println(s+" es primo");
                 else System.out.println(s+" no es primo");
+                System.out.println(pr);
             }
-            System.out.println(pr);
+            
         }
     }
 

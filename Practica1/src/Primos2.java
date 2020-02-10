@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * evitar cálculos repetidos, y calcula si un número es primo
  * La cache conserva los primos calculados
  */
-public class Primos {
+public class Primos2 {
     // usamos un conjunto ordenado, que implementa TreeSet
     private SortedSet<Integer> primos= new TreeSet<>();
     private int max=1;
@@ -89,24 +89,29 @@ public class Primos {
         return divisores;
     }
 
-    }
 
-    
+
+    /**
+     * Punto de entrada a la aplicación.
+     *
+     * Este comprueba si los números de la línea de comando son primos
+     * Al final imprime todos los primos hasta el número más grande pasado
+     * @param args Los argumentos de la línea de comando. Se esperan números enteros, como cadenas
+     */
     public static void main(String[] args){
         if (args.length < 1){
             System.out.println("Se espera al menos un número como parámetro");
         }
         else{
-            Primos pr = new Primos();
+            Primos2 pr = new Primos2();
             for(String s: args){
                 boolean b = pr.esPrimo(Integer.parseInt(s));
                 if (b == true) System.out.println(s+" es primo");
                 else{
                     System.out.println(s+" no es primo");
-                    System.out.println("Los divisores de "+s+" son: "+ divisoresPrimos(Integer.parseInt(s)));
+                    System.out.println("Los divisores primos de "+s+" son: "+ pr.divisoresPrimos(Integer.parseInt(s)));
                 }
             }
-            System.out.println(pr);
         }
     }
 
