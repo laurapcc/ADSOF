@@ -56,7 +56,7 @@ public class Primos {
             if (compruebaPrimo(i) == true) primos.add(i);
         }
         
-        if (n > max) max = n;
+        max = n;
     }
 
     /**
@@ -90,9 +90,8 @@ public class Primos {
                 boolean b = pr.esPrimo(Integer.parseInt(s));
                 if (b == true) System.out.println(s+" es primo");
                 else System.out.println(s+" no es primo");
-                System.out.println(pr);
             }
-            
+            System.out.println(pr);
         }
     }
 
