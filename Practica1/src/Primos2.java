@@ -58,7 +58,7 @@ public class Primos2 {
             if (compruebaPrimo(i) == true) primos.add(i);
         }
         
-        if (n > max) max = n;
+        max = n;
     }
 
     /**
