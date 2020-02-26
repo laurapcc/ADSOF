@@ -29,7 +29,9 @@ public class Tabaco extends Articulo {
     }
 
     /**
-     * @param unidades 
+     * El tabaco no tiene descuento
+     * 
+     * @param unidades numero de unidades del objeto tabaco
 	 * @return descuento (double) como porcentaje que se aplica al alimento
      */
     public double descuento(double unidades) {

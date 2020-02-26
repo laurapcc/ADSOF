@@ -31,6 +31,7 @@ public class Libro extends Articulo {
     }
 
     /**
+     * Devuelve el precio de un articulo de dicho objeto
      * 
 	 * @return atributo category (String) del libro
      */
@@ -44,13 +45,17 @@ public class Libro extends Articulo {
     public void setCategory(String category) { this.category = category; }
 
     /**
+     * Tipo de IVA general aplicable es 4%
      * 
 	 * @return porcentaje (double) de IVA que se aplica a Libro
      */
     public double tipoIVA() { return 0.04; }
 
     /**
-     * @param unidades 
+     * Descuento del 15% si es Libro de texto
+     * Descuento del 50% a partir de la tercera unidad si es Libro de coleccion
+     * 
+     * @param unidades numero de unidades del objeto libro
 	 * @return descuento (double) como porcentaje que se aplica al alimento
      */
     public double descuento(double unidades) {

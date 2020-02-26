@@ -20,6 +20,7 @@ public class Alimento extends Articulo {
 		
 		/**
      * Constructor: crea un objeto de tipo alimento con los parametros pasados
+		 * 
      * @param id un número entero: identificador
 		 * @param desc una cadena de caracteres: descripcion del alimento
 		 * @param precio un número decimal
@@ -31,7 +32,8 @@ public class Alimento extends Articulo {
 		}
 		
 		/**
-     * 
+     * Devuelve si un alimeno tiene la promocion 3x2
+		 * 
 		 * @return atributo promo (boolean) de alimento
      */
 		public boolean getPromo3x2() { return promo3x2; }
@@ -44,13 +46,16 @@ public class Alimento extends Articulo {
 		public void setPromo3x2(boolean promo) { promo3x2 = promo; }
 
 		/**
-     * 
+     * Tipo de IVA general aplicable es 10%
+		 * 
 		 * @return porcentaje (double) de IVA que se aplica a Alimento
      */
 		public double tipoIVA() { return 0.10; }
 		
 		/**
-     * @param unidades 
+		 * Descuento de 3x2 si el Alimento tiene promo3x2
+		 * 
+     * @param unidades numero de unidades del objeto alimento 
 		 * @return descuento (double) como porcentaje que se aplica al alimento
      */
 	  public double descuento(double unidades) {
