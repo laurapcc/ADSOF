@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"ads.p2.facturacion","l":"Alimento"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"ads.p2.facturacion","l":"Articulo"},{"p":"ads.p2.facturacion","l":"Libro"},{"p":"ads.p2.facturacion","l":"Tabaco"}]
