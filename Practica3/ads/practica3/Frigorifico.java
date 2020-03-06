@@ -9,6 +9,7 @@ package ads.practica3;
  */
 public class Frigorifico extends ElectrodomesticoPesoDim {
 
+    private boolean frost;
     /**
      * Constructor: crea un objeto de tipo Frigorifico con los parametros pasados
      * 
@@ -17,10 +18,20 @@ public class Frigorifico extends ElectrodomesticoPesoDim {
      * @param precio double: precio del frigorifico
      * @param peso double: peso del frigorifico
      * @param dim Dimension: dimensiones del frigorifico
+     * @param frost boolean: si el frigorifico es frost o no
      */
     public Frigorifico(String marca, String modelo, double precio, EficEnergetica claseEnergetica,
-                 double peso, Dimension dim) {
-        super(marca, modelo, precio, claseEnergetica, peso, dim);
+                        Dimension dim, double peso, boolean frost) {
+        super(marca, modelo, precio, claseEnergetica, dim, peso);
+        this.frost = frost;
+    }
+
+    public boolean getFrost() {
+        return this.frost;
+    }
+
+    public void setFrost(boolean frost) {
+        this.frost = frost;
     }
 
     /**

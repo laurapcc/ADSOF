@@ -19,32 +19,14 @@ public abstract class ElectrodomesticoPesoDim extends Electrodomestico {
      * @param marca String: marca del electrodomestico
      * @param modelo String: modelo del electrodomestico
      * @param precio double: precio del electrodomestico
-     * @param peso double: peso de la electrodomestico
      * @param dim Dimension: dimensiones del electrodomestico
+     * @param peso double: peso de la electrodomestico
      */
     public ElectrodomesticoPesoDim(String marca, String modelo, double precio,
-                                 EficEnergetica claseEnergetica, double peso,
-                                 Dimension dim) {
+                                 EficEnergetica claseEnergetica, Dimension dim,
+                                 double peso) {
         super(marca, modelo, precio, claseEnergetica);
-        this.peso = peso;
         this.dim = dim;
-    }
-
-    /**
-     * Devuelve el peso del electrodomestico
-     * 
-     * @return peso
-     */
-    public double getPeso() {
-        return this.peso;
-    }
-
-    /**
-     * Actualiza el atributo peso del electrodomestico
-     * 
-     * @param peso double
-     */
-    public void setPeso(double peso) {
         this.peso = peso;
     }
 
@@ -64,6 +46,24 @@ public abstract class ElectrodomesticoPesoDim extends Electrodomestico {
      */
     public void setDim(Dimension dim) {
         this.dim = dim;
+    }
+    
+    /**
+     * Devuelve el peso del electrodomestico
+     * 
+     * @return peso
+     */
+    public double getPeso() {
+        return this.peso;
+    }
+
+    /**
+     * Actualiza el atributo peso del electrodomestico
+     * 
+     * @param peso double
+     */
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
 }

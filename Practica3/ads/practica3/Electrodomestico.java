@@ -107,4 +107,10 @@ public abstract class Electrodomestico {
      */
     public abstract double precioPorte();
 
+
+    @Override
+    public String toString() {
+        return getMarca() + " " + getModelo() + ", %.2f Euros", getPrecio();
+    }
+
 }

@@ -9,6 +9,28 @@ package ads.practica3;
  */
 public class Lavadora extends ElectrodomesticoPesoDim {
 
+    private double cargaKg;
+    private int rpm;
+
+    /**
+     * Constructor: crea un objeto de tipo Lavadora con los parametros pasados
+     * 
+     * @param marca  String: marca de la lavadora
+     * @param modelo String: modelo de la lavadora
+     * @param precio double: precio de la lavadora
+     * @param peso double: peso de la lavadora
+     * @param dim Dimension: dimensiones de la lavadora
+     * @param cargaKg double: kilogramos de carga de la lavadora
+     * @param rpm int: revoluciones por minuto de la lavadora
+     */
+    public Lavadora(String marca, String modelo, double precio, 
+                    EficEnergetica claseEnergetica, Dimension dim, 
+                    double peso, double cargaKg, int rpm) {
+        super(marca, modelo, precio, claseEnergetica, dim, peso);
+        this.cargaKg = cargaKg;
+        this.rpm = rpm;
+    }
+
     /**
      * Constructor: crea un objeto de tipo Lavadora con los parametros pasados
      * 
@@ -18,9 +40,25 @@ public class Lavadora extends ElectrodomesticoPesoDim {
      * @param peso double: peso de la lavadora
      * @param dim Dimension: dimensiones de la lavadora
      */
-    public Lavadora(String marca, String modelo, double precio, EficEnergetica claseEnergetica,
-                 double peso, Dimension dim) {
-        super(marca, modelo, precio, claseEnergetica, peso, dim);
+    public Lavadora(String marca, String modelo, double precio, EficEnergetica claseEnergetica, 
+                    Dimension dim, double peso) {
+        super(marca, modelo, precio, claseEnergetica, dim, peso);
+    }
+
+    public double getCargaKg() {
+        return this.cargaKg;
+    }
+
+    public void setCargaKg(double cargaKg) {
+        this.cargaKg = cargaKg;
+    }
+
+    public int getRpm() {
+        return this.rpm;
+    }
+
+    public void setRpm(int rpm) {
+        this.rpm = rpm;
     }
 
     /**
