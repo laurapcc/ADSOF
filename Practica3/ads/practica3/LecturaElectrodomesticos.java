@@ -33,7 +33,6 @@ public abstract class LecturaElectrodomesticos {
                 productos.add(e);
             }
             buffer.close();
-            return productos;
         } catch (IOException e) {
             e.printStackTrace();
         }
