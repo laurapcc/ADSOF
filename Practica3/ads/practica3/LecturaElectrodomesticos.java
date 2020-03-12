@@ -1,4 +1,5 @@
 package ads.practica3;
+
 import java.util.*;
 import java.io.*;
 
@@ -12,37 +13,47 @@ import java.io.*;
 public abstract class LecturaElectrodomesticos {
 
     /**
+     * Lee líena a línea un fichero de entrada y llama ala función crearElectrodomestico para crear
+     * un electrodoméstico nuevo con los argumentos pasados
      * 
-     * @param file
-     * @return
-     * @throws IOException
+     * @param file fichero del que queremos leer
+     * @return lista con los productos de tipo Electrodomestico creado
      */
-    public static List<Electrodomestico> leer(String file) throws IOException {
+    public static List<Electrodomestico> leer(String file) {
         List<Electrodomestico> productos = new ArrayList<Electrodomestico>();
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-        String line;
+        BufferedReader buffer;
         
-        while((line = buffer.readLine()) != null){
-            String[] aux = line.split("=");
-            Electrodomestico e = crearElectrodomestico(aux);
-            productos.add(e);
+        try {
+            buffer = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String line;
+            
+            while((line = buffer.readLine()) != null){
+                String[] aux = line.split("=");
+                Electrodomestico e = crearElectrodomestico(aux);
+                productos.add(e);
+            }
+            buffer.close();
+            return productos;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        buffer.close();
         return productos;
-    } 
-
+    }
 
     /**
+     * Crea un un objeto de tipo Electrodomestico cuyos arguemntos se pasan mediante
+     * un array de tipo String
      * 
-     * @param info
-     * @return
+     * @param info array de tipo Strign con los argumentos de entrada
+     * @return objeto Electrodomestico creado
      */
-    public static Electrodomestico crearElectrodomestico(String[] info){
+    public static Electrodomestico crearElectrodomestico(String[] info) {
         Electrodomestico e = null;
         String marca = info[0];
         String modelo = info[1];
-        double precio = Integer.parseInt(info[2]);
+        double precio = Double.parseDouble(info[2]);
         ClaseEnergetica claseEnergetica = ClaseEnergetica.valueOf(info[3]);
+
         if (info.length == 5){
             double pantalla = Double.parseDouble(info[4]);
             e = new Television(marca, modelo, precio, claseEnergetica, pantalla);
@@ -63,6 +74,7 @@ public abstract class LecturaElectrodomesticos {
                 // no se si hay que añadir tbn la lavadora sin carga ni rpm (el otro oconstructor) 
             }
         }
+
         return e;
     }
 
