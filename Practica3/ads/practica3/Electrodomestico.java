@@ -22,7 +22,7 @@ public abstract class Electrodomestico {
      * @param modelo un String: modelo del electrodomestico
      * @param precio un double: precio del electrodomestico
      */
-    public Electrodomestico(String marca, String modelo, double precio, EficEnergetica claseEnergetica) {
+    public Electrodomestico(final String marca, final String modelo, final double precio, final EficEnergetica claseEnergetica) {
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
@@ -43,7 +43,7 @@ public abstract class Electrodomestico {
 	 * 
 	 * @param marca String
 	 */
-    public void setMarca(String marca) {
+    public void setMarca(final String marca) {
         this.marca = marca;
     }
 
@@ -61,7 +61,7 @@ public abstract class Electrodomestico {
 	 * 
 	 * @param modelo String
 	 */
-    public void setModelo(String modelo) {
+    public void setModelo(final String modelo) {
         this.modelo = modelo;
     }
 
@@ -79,7 +79,7 @@ public abstract class Electrodomestico {
 	 * 
 	 * @param precio double
 	 */
-    public void setPrecio(double precio) {
+    public void setPrecio(final double precio) {
         this.precio = precio;
     }
 
@@ -97,7 +97,7 @@ public abstract class Electrodomestico {
 	 * 
 	 * @param claseEnergetica elemento de la enumeracion EficEnergetica
 	 */
-    public void setClaseEnergetica(EficEnergetica claseEnergetica) {
+    public void setClaseEnergetica(final EficEnergetica claseEnergetica) {
         this.claseEnergetica = claseEnergetica;
     }
 
@@ -110,7 +110,7 @@ public abstract class Electrodomestico {
 
     @Override
     public String toString() {
-        return getMarca() + " " + getModelo() + ", %.2f Euros", getPrecio();
+        return getMarca() + " " + getModelo() + String.format(", %.2f Euros", getPrecio());
     }
 
 }
