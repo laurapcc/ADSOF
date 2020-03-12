@@ -38,14 +38,29 @@ public class VentaDomicilio extends Venta {
      * @return precio de la entrega a domicilio
      */
     public double entregaDomicilio() {
-        return getElecEntregado().precioPorte() + importefinal();
+        return getElecEntregado().precioPorte() + importeFinal();
     }
 
     /**
+     * Devuelve el ticket de un producto indicando el producto vendido, su precio, el descuento
+     * en la entrega, el coste del porte y el total a pagar
      * 
-     * @return
+     * @return ticket del producto
      */
-    private double importefinal() {
-        return 0;
-    }
+	public String getTicket() {
+        String ticket;
+        double precioProd = getElecVendido().getPrecio();
+        double descEntrega = descuento(getElecEntregado());
+        double costePorte = getElecVendido().precioPorte();
+
+        ticket = "--------------------------------------------\n";
+        ticket += "Producto vendido: "+getElecVendido().getMarca()+" "+getElecVendido().getModelo()+", "+getElecVendido().getPrecio()+" Euros\n";
+        ticket += "--------------------------------------------\n";
+        ticket += "Precio producto:"+String.format("%15.2f Euros\n", precioProd);
+        ticket += "Descuento entrega:"+String.format("%13.2f Euros\n", descEntrega);
+        ticket += "Coste porte:"+String.format("%19.2f Euros\n", costePorte);
+        ticket += "TOTAL:"+String.format("%25.2f Euros\n", precioProd-descEntrega+costePorte);
+
+		return ticket;
+	}
 }

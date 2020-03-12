@@ -98,12 +98,33 @@ public class Venta {
         int claseVendido = elecVendido.getClaseEnergetica().ordinal();
         int claseEntregado = elecEntregado.getClaseEnergetica().ordinal();
 
-        if (claseEntregado == claseVendido)
-            return 25;
-        else if (claseEntregado > claseVendido) // mas grandre, mas gasto
+        if (elecEntregado.getClaseEnergetica() == ClaseEnergetica.Desconocida)
+            return 10;
+        else if (claseEntregado > claseVendido)
             return 25+(claseEntregado-claseVendido)*15;
         else if (claseEntregado < claseVendido)
             return 25-(claseVendido-claseEntregado)*5;
-        return 10;
+        return 25;
     }
+
+    /**
+     * Devuelve el ticket de un producto indicando el producto vendido, su precio, el descuento
+     * en la entrega y el total a pagar
+     * 
+     * @return ticket del producto
+     */
+	public String getTicket() {
+        String ticket;
+        double precioProd = elecVendido.getPrecio();
+        double descEntrega = descuento(elecEntregado);
+
+        ticket = "--------------------------------------------\n";
+        ticket += "Producto vendido: "+elecVendido.getMarca()+" "+elecVendido.getModelo()+", "+elecVendido.getPrecio()+" Euros\n";
+        ticket += "--------------------------------------------\n";
+        ticket += "Precio producto:"+String.format("%15.2f Euros\n", precioProd);
+        ticket += "Descuento entrega:"+String.format("%13.2f Euros\n", descEntrega);
+        ticket += "TOTAL:"+String.format("%25.2f Euros\n", precioProd-descEntrega);
+
+		return ticket;
+	}
 }
