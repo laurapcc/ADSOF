@@ -1,7 +1,7 @@
 package ads.practica3;
 
 /**
- * Enumeracion EClase Energetica
+ * Enumeracion Clase Energetica
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es

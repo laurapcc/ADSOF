@@ -20,7 +20,7 @@ public class Frigorifico extends ElectrodomesticoPesoDim {
      * @param dim Dimension: dimensiones del frigorifico
      * @param frost boolean: si el frigorifico es frost o no
      */
-    public Frigorifico(String marca, String modelo, double precio, EficEnergetica claseEnergetica,
+    public Frigorifico(String marca, String modelo, double precio, ClaseEnergetica claseEnergetica,
                         Dimension dim, double peso, boolean frost) {
         super(marca, modelo, precio, claseEnergetica, dim, peso);
         this.frost = frost;

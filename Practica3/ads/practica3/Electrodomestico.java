@@ -12,7 +12,7 @@ public abstract class Electrodomestico {
     private String marca;
     private String modelo;
     private double precio;
-    private EficEnergetica claseEnergetica;
+    private ClaseEnergetica claseEnergetica;
 
     /**
      * Constructor: crea un objeto de tipo Electrodomestico con los parametros
@@ -22,7 +22,7 @@ public abstract class Electrodomestico {
      * @param modelo un String: modelo del electrodomestico
      * @param precio un double: precio del electrodomestico
      */
-    public Electrodomestico(final String marca, final String modelo, final double precio, final EficEnergetica claseEnergetica) {
+    public Electrodomestico(final String marca, final String modelo, final double precio, final ClaseEnergetica claseEnergetica) {
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
@@ -86,18 +86,18 @@ public abstract class Electrodomestico {
     /**
      * Devuelve la clase energetica del electrodomestico
      * 
-     * @return EficEnergetica: clase energetica
+     * @return ClaseEnergetica: clase energetica
      */
-    public EficEnergetica getClaseEnergetica() {
+    public ClaseEnergetica getClaseEnergetica() {
         return this.claseEnergetica;
     }
 
     /**
 	 * Actualiza el atributo claseEnergetica de electrodomestico
 	 * 
-	 * @param claseEnergetica elemento de la enumeracion EficEnergetica
+	 * @param claseEnergetica elemento de la enumeracion ClaseEnergetica
 	 */
-    public void setClaseEnergetica(final EficEnergetica claseEnergetica) {
+    public void setClaseEnergetica(final ClaseEnergetica claseEnergetica) {
         this.claseEnergetica = claseEnergetica;
     }
 

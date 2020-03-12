@@ -90,8 +90,6 @@ public class Venta {
      * @return descuento aplicado al electrodomestico vendido
      */
     public double descuento(Electrodomestico elecEntregado) {
-        // EficEnergetica claseVendido;
-        // EficEnergetica claseEntregado;
         if (elecEntregado == null)
             return 0;
 

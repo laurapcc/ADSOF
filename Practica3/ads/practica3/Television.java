@@ -19,7 +19,7 @@ public class Television extends Electrodomestico {
      * @param precio   un double: precio de la television
      * @param pantalla double: tamano de la pantalla de la television
      */
-    public Television(String marca, String modelo, double precio, EficEnergetica claseEnergetica, double pantalla) {
+    public Television(String marca, String modelo, double precio, ClaseEnergetica claseEnergetica, double pantalla) {
         super(marca, modelo, precio, claseEnergetica);
         this.pantalla = pantalla;
     }

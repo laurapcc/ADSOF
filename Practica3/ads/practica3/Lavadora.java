@@ -24,7 +24,7 @@ public class Lavadora extends ElectrodomesticoPesoDim {
      * @param rpm int: revoluciones por minuto de la lavadora
      */
     public Lavadora(String marca, String modelo, double precio, 
-                    EficEnergetica claseEnergetica, Dimension dim, 
+                    ClaseEnergetica claseEnergetica, Dimension dim, 
                     double peso, double cargaKg, int rpm) {
         super(marca, modelo, precio, claseEnergetica, dim, peso);
         this.cargaKg = cargaKg;
@@ -40,7 +40,7 @@ public class Lavadora extends ElectrodomesticoPesoDim {
      * @param peso double: peso de la lavadora
      * @param dim Dimension: dimensiones de la lavadora
      */
-    public Lavadora(String marca, String modelo, double precio, EficEnergetica claseEnergetica, 
+    public Lavadora(String marca, String modelo, double precio, ClaseEnergetica claseEnergetica, 
                     Dimension dim, double peso) {
         super(marca, modelo, precio, claseEnergetica, dim, peso);
     }

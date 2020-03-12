@@ -23,7 +23,7 @@ public abstract class ElectrodomesticoPesoDim extends Electrodomestico {
      * @param peso double: peso de la electrodomestico
      */
     public ElectrodomesticoPesoDim(String marca, String modelo, double precio,
-                                 EficEnergetica claseEnergetica, Dimension dim,
+                                 ClaseEnergetica claseEnergetica, Dimension dim,
                                  double peso) {
         super(marca, modelo, precio, claseEnergetica);
         this.dim = dim;
