@@ -17,7 +17,7 @@ public abstract class LecturaElectrodomesticos {
      * @return
      * @throws IOException
      */
-    public List<Electrodomestico> leer(String file) throws IOException {
+    public static List<Electrodomestico> leer(String file) throws IOException {
         List<Electrodomestico> productos = new ArrayList<Electrodomestico>();
         BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         String line;
@@ -37,12 +37,12 @@ public abstract class LecturaElectrodomesticos {
      * @param info
      * @return
      */
-    public Electrodomestico crearElectrodomestico(String[] info){
+    public static Electrodomestico crearElectrodomestico(String[] info){
         Electrodomestico e = null;
         String marca = info[0];
         String modelo = info[1];
         double precio = Integer.parseInt(info[2]);
-        EficEnergetica claseEnergetica = EficEnergetica.valueOf(info[3]);
+        ClaseEnergetica claseEnergetica = ClaseEnergetica.valueOf(info[3]);
         if (info.length == 5){
             double pantalla = Double.parseDouble(info[4]);
             e = new Television(marca, modelo, precio, claseEnergetica, pantalla);
@@ -63,7 +63,6 @@ public abstract class LecturaElectrodomesticos {
                 // no se si hay que añadir tbn la lavadora sin carga ni rpm (el otro oconstructor) 
             }
         }
-
         return e;
     }
 

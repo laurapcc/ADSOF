@@ -117,7 +117,7 @@ public class Venta {
         double descEntrega = descuento(elecEntregado);
 
         ticket = "--------------------------------------------\n";
-        ticket += "Producto vendido: "+elecVendido.getMarca()+" "+elecVendido.getModelo()+", "+elecVendido.getPrecio()+" Euros\n";
+        ticket += "Producto vendido: "+elecVendido.toString() + "\n";
         ticket += "--------------------------------------------\n";
         ticket += "Precio producto:"+String.format("%15.2f Euros\n", precioProd);
         ticket += "Descuento entrega:"+String.format("%13.2f Euros\n", descEntrega);

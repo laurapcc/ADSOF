@@ -54,7 +54,7 @@ public class VentaDomicilio extends Venta {
         double costePorte = getElecVendido().precioPorte();
 
         ticket = "--------------------------------------------\n";
-        ticket += "Producto vendido: "+getElecVendido().getMarca()+" "+getElecVendido().getModelo()+", "+getElecVendido().getPrecio()+" Euros\n";
+        ticket += "Producto vendido: "+getElecVendido().toString() + "\n";
         ticket += "--------------------------------------------\n";
         ticket += "Precio producto:"+String.format("%15.2f Euros\n", precioProd);
         ticket += "Descuento entrega:"+String.format("%13.2f Euros\n", descEntrega);
