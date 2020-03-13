@@ -28,15 +28,29 @@ public abstract class LecturaElectrodomesticos {
             String line;
             
             while((line = buffer.readLine()) != null){
+                boolean flag = false;
+                Electrodomestico e;
                 String[] aux = line.split("=");
                 if (aux.length == 5)
-                    productos.add(crearTelevision(aux));
+                    e = crearTelevision(aux);
                 else if (aux.length == 9)
-                    productos.add(crearFrigorifico(aux));
+                    e = crearFrigorifico(aux);
                 else if (aux.length == 10)
-                    productos.add(crearLavadora(aux));
-                else
+                    e = crearLavadora(aux);
+                else {
                     System.out.printf("Linea no procesada\n");
+                    continue;
+                }
+                for (Electrodomestico ele : productos) {
+                    if (ele.equals(e) == true) {
+                        System.out.printf("Duplicado no añadido:\n");
+                        System.out.printf(e.toString()+"\n");
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag == false)
+                    productos.add(e);
             }
             buffer.close();
         } catch (IOException e) {

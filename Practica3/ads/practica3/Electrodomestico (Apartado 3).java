@@ -103,6 +103,7 @@ public abstract class Electrodomestico {
 
     /**
      * Calcula el precio de envio dependiendo del tipo de electrodomestico
+     * 
      * @return double: precio del envio
      */
     public abstract double precioPorte();
@@ -117,4 +118,20 @@ public abstract class Electrodomestico {
         return getMarca() + " " + getModelo() + String.format(", %.2f Euros", getPrecio());
     }
 
+    @Override
+    /**
+     * Compara si dos objectos de la clase Electrodomestico son iguales
+     * 
+     * @return true si son el mismo tipo de Electrdomestico, tienen la misma marca y modelo.
+     * Devuelve false en caso contrario
+     */
+    public boolean equals(Object obj) {
+        if (getClass() != obj.getClass())
+            return false;
+        if (((Electrodomestico)obj).getMarca().equals(marca) == false)
+            return false;
+        if (((Electrodomestico)obj).getModelo().equals(modelo) == false)
+            return false;
+        return true;
+    }
 }
