@@ -29,8 +29,12 @@ public abstract class LecturaElectrodomesticos {
             
             while((line = buffer.readLine()) != null){
                 String[] aux = line.split("=");
-                Electrodomestico e = crearElectrodomestico(aux);
-                productos.add(e);
+                if (aux.length < 5 || aux.length > 10)
+                    System.out.printf("Linea no procesada\n");
+                else {
+                    Electrodomestico e = crearElectrodomestico(aux);
+                    productos.add(e);
+                }
             }
             buffer.close();
         } catch (IOException e) {
@@ -70,7 +74,6 @@ public abstract class LecturaElectrodomesticos {
                 double cargaKg = Double.parseDouble(info[8]);
                 int rpm = Integer.parseInt(info[9]);
                 e = new Lavadora(marca, modelo, precio, claseEnergetica, dim, peso, cargaKg, rpm);
-                // no se si hay que añadir tbn la lavadora sin carga ni rpm (el otro oconstructor) 
             }
         }
 
