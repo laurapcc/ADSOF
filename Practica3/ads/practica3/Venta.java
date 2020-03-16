@@ -167,7 +167,7 @@ public class Venta {
      * @return ultima linea del ticket del producto
      */
     public String getTicketLastln() {
-        return "TOTAL:" + String.format("%25.2f Euros", elecVendido.getPrecio() - descuento(elecEntregado));
+        return "TOTAL:" + String.format("%25.2f Euros", importeFinal());
     }
 
     /**

@@ -38,7 +38,7 @@ public class VentaDomicilio extends Venta {
      * @return precio de la entrega a domicilio
      */
     public double entregaDomicilio() {
-        return getElecEntregado().precioPorte() + importeFinal();
+        return getElecVendido().precioPorte() + importeFinal();
     }
     
     /**
@@ -76,6 +76,6 @@ public class VentaDomicilio extends Venta {
      * @return ultima linea del ticket del producto
      */
     public String getTicketLastln() {
-        return "TOTAL:" + String.format("%25.2f Euros", getElecVendido().getPrecio() - descuento(getElecEntregado()) + getElecVendido().precioPorte());
+        return "TOTAL:" + String.format("%25.2f Euros", entregaDomicilio());
     }
 }
