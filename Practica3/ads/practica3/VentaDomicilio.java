@@ -40,27 +40,42 @@ public class VentaDomicilio extends Venta {
     public double entregaDomicilio() {
         return getElecEntregado().precioPorte() + importeFinal();
     }
-
+    
     /**
-     * Devuelve el ticket de un producto indicando el producto vendido, su precio, el descuento
-     * en la entrega, el coste del porte y el total a pagar
+     * Devuelve el ticket de un producto indicando el producto vendido, su precio,
+     * el descuento en la entrega y el total a pagar
      * 
      * @return ticket del producto
      */
-	public String getTicket() {
+    public String getTicket() {
         String ticket;
-        double precioProd = getElecVendido().getPrecio();
-        double descEntrega = descuento(getElecEntregado());
-        double costePorte = getElecVendido().precioPorte();
 
         ticket = "--------------------------------------------\n";
-        ticket += "Producto vendido: "+getElecVendido().toString() + "\n";
+        ticket += getTicketFirstln() + "\n";
         ticket += "--------------------------------------------\n";
-        ticket += "Precio producto:"+String.format("%15.2f Euros\n", precioProd);
-        ticket += "Descuento entrega:"+String.format("%13.2f Euros\n", descEntrega);
-        ticket += "Coste porte:"+String.format("%19.2f Euros\n", costePorte);
-        ticket += "TOTAL:"+String.format("%25.2f Euros\n", precioProd-descEntrega+costePorte);
+        ticket += getTicketSecondln() + "\n";
+        ticket += getTicketThirdln() + "\n";
+        ticket += getTicketFourthln() + "\n";
+        ticket += getTicketLastln() + "\n";
 
-		return ticket;
-	}
+        return ticket;
+    }
+
+    /**
+     * Devuelve la cuarta linea del ticket de un producto
+     * 
+     * @return cuarta linea del ticket del producto
+     */
+    public String getTicketFourthln() {
+        return "Coste porte:" + String.format("%19.2f Euros", getElecVendido().precioPorte());
+    }
+
+    /**
+     * Devuelve la ultima linea del ticket de un producto
+     * 
+     * @return ultima linea del ticket del producto
+     */
+    public String getTicketLastln() {
+        return "TOTAL:" + String.format("%25.2f Euros", getElecVendido().getPrecio() - descuento(getElecEntregado()) + getElecVendido().precioPorte());
+    }
 }

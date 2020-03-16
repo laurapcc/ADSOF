@@ -106,8 +106,7 @@ public abstract class Electrodomestico {
      * @return double: precio del envio
      */
     public abstract double precioPorte();
-
-
+    
     /**
      * Metodo toString genérico de la clase Electrodomestico
      * 
