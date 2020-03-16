@@ -20,10 +20,10 @@ public class Dimension {
      * @param ancho
      * @param largo
      */
-    public Dimension(double alto, double ancho, double largo) {
-        this.alto = alto;
+    public Dimension(double ancho, double largo, double alto) {
         this.ancho = ancho;
         this.largo = largo;
+        this.alto = alto;
     }
 
     /**

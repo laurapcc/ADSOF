@@ -9,8 +9,8 @@ package ads.practica3;
  */
 public abstract class ElectrodomesticoPesoDim extends Electrodomestico {
 
-    private double peso;
     private Dimension dim;
+    private double peso;
 
     /**
      * Constructor: crea un objeto de tipo ElectrodomesticoPesoDim 
