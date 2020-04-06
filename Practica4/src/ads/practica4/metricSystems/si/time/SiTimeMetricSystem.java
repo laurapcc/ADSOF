@@ -17,7 +17,7 @@ public class SiTimeMetricSystem implements IPhysicalUnit{
     public static final SiTimeMetricSystem SECOND = new SiTimeMetricSystem("s");
     public static final SiTimeMetricSystem HOUR = new SiTimeMetricSystem("h");
 
-    private Quantity quantity = Quantity.t;
+    private Quantity quantity = Quantity.TIME;
     private String abbrev;
 
     private SiTimeMetricSystem(String abbrev) {

@@ -8,5 +8,16 @@ package ads.practica4.quantity;
  *
  */
 public enum Quantity {
-    L, t;
+    LENGTH("L"), TIME("t");
+
+    private String abbrev;
+
+    private Quantity(String abbrev){
+        this.abbrev = abbrev;
+    }
+
+    @Override
+    public String toString(){
+        return abbrev;
+    }
 }

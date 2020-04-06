@@ -17,9 +17,9 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
     public static final SiLengthMetricSystem METER = new SiLengthMetricSystem("m");
     public static final SiLengthMetricSystem KILOMETER = new SiLengthMetricSystem("km");
 
-    private Quantity quantity = Quantity.L;
+    private Quantity quantity = Quantity.LENGTH;
     private String abbrev;
-    
+
     private SiLengthMetricSystem(String abbrev) {
         this.abbrev = abbrev;
     }
@@ -29,7 +29,10 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
     }
 
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-        return 0.0;
+        if (!canTransformTo(u))
+            throw new QuantityException("Quantities " + u.getQuantity() + " and  " + this.quantity + " are not compatible");
+        else
+            return d;
     }
     
     public Quantity getQuantity() {
