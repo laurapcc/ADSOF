@@ -13,20 +13,32 @@ import ads.practica4.magnitude.exceptions.QuantityException;
  */
 public class SiTimeMetricSystem implements IPhysicalUnit{
 
-    public static final SiTimeMetricSystem MILISECOND = new SiTimeMetricSystem("ms");
-    public static final SiTimeMetricSystem SECOND = new SiTimeMetricSystem("s");
-    public static final SiTimeMetricSystem HOUR = new SiTimeMetricSystem("h");
+    public static final SiTimeMetricSystem MILISECOND = new SiTimeMetricSystem("ms", 0.001);
+    public static final SiTimeMetricSystem SECOND = new SiTimeMetricSystem("s", 1);
+    public static final SiTimeMetricSystem HOUR = new SiTimeMetricSystem("h", 3600);
 
     private final Quantity quantity = Quantity.TIME;
     private final String abbrev;
+    private final double eqVal;
 
     /**
      * Constructor privado de SiTimeMetricSystem
      * 
      * @param abbrev abreviatura de la magnitud de medida
      */
-    private SiTimeMetricSystem(String abbrev) {
+    private SiTimeMetricSystem(String abbrev, double eqVal) {
         this.abbrev = abbrev;
+        this.eqVal = eqVal;
+    }
+
+    /**
+     * Devuelve el atributo eqVal
+     * 
+     * @return : valor equivalente, es la cantidad de unidades basicas que
+     * hay en la magnitud actual
+     */
+    public double getEqVal() {
+        return this.eqVal;
     }
 
     /**
@@ -41,27 +53,6 @@ public class SiTimeMetricSystem implements IPhysicalUnit{
     }
 
     /**
-     * Metodo privado que calcula el valor equivalente de una unidad fisica. El valor
-     * equivalente es el numero de unidades basicas que hay en la unidad fisica que
-     * se pasa como argumento
-     * 
-     * @param l unidad fisica de la cual queremos sabel el valor equivalente
-     * @return valor equivalente
-     */
-    private double getEqValue(SiTimeMetricSystem t) {
-        double ret = 0;
-
-        if (t.abbrev().equals("ms"))
-            ret = 0.001;
-        else if (t.abbrev().equals("s"))
-            ret = 1;
-        else if (t.abbrev().equals("h"))
-            ret = 3600;
-
-        return ret;
-    }
-
-    /**
      * Transforma la unidad d de la magnitud actual a la pasada como argumento
      * 
      * @param d : cantidad que queremos cambiar de magnitud
@@ -69,8 +60,11 @@ public class SiTimeMetricSystem implements IPhysicalUnit{
      * @return : resultado de la transformacion
      */
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-        double val1 = getEqValue(this);
-        double val2 = getEqValue((SiTimeMetricSystem)u);
+        if (!canTransformTo(u))
+            throw new QuantityException("Quantities " + u.getQuantity().toString() + " and " + quantity.toString() + " are not compatible"); 
+
+        double val1 = this.eqVal;
+        double val2 = ((SiTimeMetricSystem)u).getEqVal();
         
         return d*(val1/val2);
     }

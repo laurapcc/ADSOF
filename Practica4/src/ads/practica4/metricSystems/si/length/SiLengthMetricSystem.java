@@ -13,20 +13,32 @@ import ads.practica4.magnitude.exceptions.QuantityException;
  */
 public class SiLengthMetricSystem implements IPhysicalUnit {
 
-    public static final SiLengthMetricSystem MILIMETER = new SiLengthMetricSystem("mm");
-    public static final SiLengthMetricSystem METER = new SiLengthMetricSystem("m");
-    public static final SiLengthMetricSystem KILOMETER = new SiLengthMetricSystem("km");
+    public static final SiLengthMetricSystem MILIMETER = new SiLengthMetricSystem("mm", 0.001);
+    public static final SiLengthMetricSystem METER = new SiLengthMetricSystem("m", 1);
+    public static final SiLengthMetricSystem KILOMETER = new SiLengthMetricSystem("km", 1000);
 
     private final Quantity quantity = Quantity.LENGTH;
     private final String abbrev;
+    private final double eqVal;
 
     /**
      * Constructor privado de SiLengthMetricSystem
      * 
      * @param abbrev abreviatura de la magnitud de medida
      */
-    private SiLengthMetricSystem(String abbrev) {
+    private SiLengthMetricSystem(String abbrev, double eqVal) {
         this.abbrev = abbrev;
+        this.eqVal = eqVal;
+    }
+
+    /**
+     * Devuelve el atributo eqVal
+     * 
+     * @return : valor equivalente, es la cantidad de unidades basicas que
+     * hay en la magnitud actual
+     */
+    public double getEqVal() {
+        return this.eqVal;
     }
 
     /**
@@ -41,27 +53,6 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
     }
 
     /**
-     * Metodo privado que calcula el valor equivalente de una unidad fisica. El valor
-     * equivalente es el numero de unidades basicas que hay en la unidad fisica que
-     * se pasa como argumento
-     * 
-     * @param l unidad fisica de la cual queremos sabel el valor equivalente
-     * @return valor equivalente
-     */
-    private double getEqValue(SiLengthMetricSystem l) {
-        double ret = 0;
-
-        if (l.abbrev().equals("mm"))
-            ret = 0.001;
-        else if (l.abbrev().equals("m"))
-            ret = 1;
-        else if (l.abbrev().equals("km"))
-            ret = 1000;
-
-        return ret;
-    }
-
-    /**
      * Transforma la unidad d de la magnitud actual a la pasada como argumento
      * 
      * @param d : cantidad que queremos cambiar de magnitud
@@ -70,10 +61,10 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
      */
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
         if (!canTransformTo(u))
-            throw new QuantityException("Quantities " + u.getQuantity() + " and " + quantity + " are not compatible"); 
+            throw new QuantityException("Quantities " + u.getQuantity().toString() + " and " + quantity.toString() + " are not compatible"); 
 
-        double val1 = getEqValue(this);
-        double val2 = getEqValue((SiLengthMetricSystem)u);
+        double val1 = this.eqVal;
+        double val2 = ((SiLengthMetricSystem)u).getEqVal();
 
         return d*(val1/val2);
     }
