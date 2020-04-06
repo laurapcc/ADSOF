@@ -69,6 +69,9 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
      * @return : resultado de la transformacion
      */
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
+        if (!canTransformTo(u))
+            throw new QuantityException("Quantities " + u.getQuantity() + " and " + quantity + " are not compatible"); 
+
         double val1 = getEqValue(this);
         double val2 = getEqValue((SiLengthMetricSystem)u);
 
