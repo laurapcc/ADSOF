@@ -1,5 +1,8 @@
 package ads.practica4.units;
 
+import ads.practica4.magnitude.exceptions.*;
+import ads.practica4.quantity.Quantity;
+
 
 /**
  * Interfaz IPhysicalUnit
@@ -10,7 +13,8 @@ package ads.practica4.units;
  */
 public interface IPhysicalUnit {
     boolean canTransformTo(IPhysicalUnit u);
-    double transformTo(double d, IPhysicalUnit u) throws QuantityException; Quantity getQuantity();
+    double transformTo(double d, IPhysicalUnit u) throws QuantityException;
+    Quantity getQuantity();
     String abbrev();
-    IMetricSystem getMetricSystem(); // No implementar de momento en este apartado
+    /*IMetricSystem getMetricSystem(); // No implementar de momento en este apartado*/
 }

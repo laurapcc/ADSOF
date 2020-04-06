@@ -8,8 +8,6 @@ package ads.practica4.magnitude.exceptions;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class QuantityException extends Exception{
-  public QuantityException(/* String mssg */){
-
-  }
+public class QuantityException extends Exception {
+  public QuantityException(/* String mssg */) {
 }
