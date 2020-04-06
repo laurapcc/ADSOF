@@ -1,9 +1,9 @@
 package ads.practica4.test;
 
-import units.IPhysicalUnit;
-import magnitude.exceptions.QuantityException;
-import metricSystems.si.length.SiLengthMetricSystem;
-import metricSystems.si.time.SiTimeMetricSystem;
+import ads.practica4.units.IPhysicalUnit;
+import ads.practica4.magnitude.exceptions.QuantityException;
+import ads.practica4.metricSystems.si.length.*;
+import ads.practica4.metricSystems.si.time.*;
 
 public class PhysicalUnitTest {
 	public static void main(String[] args) throws QuantityException {

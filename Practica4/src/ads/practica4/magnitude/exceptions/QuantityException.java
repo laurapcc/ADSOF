@@ -1,6 +1,5 @@
 package ads.practica4.magnitude.exceptions;
 
-
 /**
  * Excepcion QuantityException
  *
@@ -9,5 +8,7 @@ package ads.practica4.magnitude.exceptions;
  *
  */
 public class QuantityException extends Exception {
-  public QuantityException(/* String mssg */) {
+    public QuantityException(String mssg) {
+        super(mssg);
+    }
 }

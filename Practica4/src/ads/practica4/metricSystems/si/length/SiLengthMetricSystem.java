@@ -29,7 +29,7 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
     }
 
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-
+        return 0.0;
     }
     
     public Quantity getQuantity() {
@@ -41,6 +41,6 @@ public class SiLengthMetricSystem implements IPhysicalUnit {
     }
 
     public String toString() {
-        return abbrev+quantity;
+        return abbrev + " " + quantity;
     }
 }

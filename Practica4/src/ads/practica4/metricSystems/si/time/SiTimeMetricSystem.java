@@ -13,7 +13,9 @@ import ads.practica4.magnitude.exceptions.QuantityException;
  */
 public class SiTimeMetricSystem implements IPhysicalUnit{
 
+    public static final SiTimeMetricSystem MILISECOND = new SiTimeMetricSystem("ms");
     public static final SiTimeMetricSystem SECOND = new SiTimeMetricSystem("s");
+    public static final SiTimeMetricSystem HOUR = new SiTimeMetricSystem("h");
 
     private Quantity quantity = Quantity.t;
     private String abbrev;
@@ -27,7 +29,7 @@ public class SiTimeMetricSystem implements IPhysicalUnit{
     }
 
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-
+        return 0.0;
     }
 
     public Quantity getQuantity() {
@@ -39,6 +41,6 @@ public class SiTimeMetricSystem implements IPhysicalUnit{
     }
 
     public String toString() {
-        return abbrev+quantity;
+        return abbrev + " " + quantity;
     }
 }
