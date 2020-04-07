@@ -8,7 +8,18 @@ package ads.practica4.quantity;
  *
  */
 public enum Quantity {
-    LENGTH, TIME;
+    LENGTH("L"), TIME("t");
+
+    private String abbrev;		
+
+    /**
+     * Constructor privado para el enumerado Quantity
+     * 
+     * @param abbrev : abreviatura del elemento de Quantity creado
+     */
+    private Quantity(String abbrev){		
+        this.abbrev = abbrev;		
+    }
 
     /**
      * Método toString generico para el enumerado Quantity
@@ -17,13 +28,7 @@ public enum Quantity {
      * tipo TIME
      */
     @Override
-    public String toString() {
-        String ret = null;
-
-        if (this == LENGTH)
-            ret = "L";
-        else if (this == TIME)
-            ret = "t";
-        return ret;
+    public String toString(){
+        return abbrev;
     }
 }

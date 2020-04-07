@@ -4,7 +4,7 @@ import ads.practica4.metricSystems.si.SiMetricSystem;
 import ads.practica4.quantity.Quantity;
 
 /**
- * Enumeracion SiLengthMestricSystem
+ * Clase SiLengthMestricSystem
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
@@ -20,6 +20,7 @@ public class SiLengthMetricSystem extends SiMetricSystem {
      * Constructor privado de SiLengthMetricSystem
      * 
      * @param abbrev abreviatura de la magnitud de medida
+     * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
      */
     private SiLengthMetricSystem(String abbrev, double eqVal) {
         super(abbrev, eqVal, Quantity.LENGTH);

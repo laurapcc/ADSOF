@@ -5,22 +5,24 @@ import ads.practica4.units.IPhysicalUnit;
 import ads.practica4.magnitude.exceptions.QuantityException;
 
 /**
- * Enumeracion SiLengthMestricSystem
+ * Clase SiLengthMestricSystem
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiMetricSystem implements IPhysicalUnit {
+public abstract class SiMetricSystem implements IPhysicalUnit {
 
     private final Quantity quantity;
     private final String abbrev;
     private final double eqVal;
 
     /**
-     * Constructor privado de SiLengthMetricSystem
+     * Constructor de SiMetricSystem
      * 
      * @param abbrev abreviatura de la magnitud de medida
+     * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
+     * @param quantity elemento de la enumeracion que indica que cantidad mide la unidad
      */
     protected SiMetricSystem(String abbrev, double eqVal, Quantity quantity) {
         this.abbrev = abbrev;
