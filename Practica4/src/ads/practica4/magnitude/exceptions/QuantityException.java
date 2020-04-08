@@ -12,6 +12,11 @@ public class QuantityException extends Exception {
         super(mssg);
     }
 
+    /**
+     * Devuelve el mensaje de QuantityException
+     * 
+     * @return : Mensaje asociado a la excepcion
+     */
     @Override
     public String toString(){
         return getMessage();

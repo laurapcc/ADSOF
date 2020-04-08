@@ -34,7 +34,7 @@ public class Magnitude implements IMagnitude{
      * @return : magnitud actual con la adicion realizada
      */
     public IMagnitude add(IMagnitude m) throws QuantityException {
-        value += m.transformTo(unit).getValue();
+        value += m.getUnit().transformTo(m.getValue(), unit);
         return this;
     }
 
@@ -46,7 +46,7 @@ public class Magnitude implements IMagnitude{
      * @return : magnitud actual con la sustraccion realizada
      */
     public IMagnitude subs(IMagnitude m) throws QuantityException {
-        value -= m.transformTo(unit).getValue();
+        value -= m.getUnit().transformTo(m.getValue(), unit);
         return this;
     }
 
