@@ -12,7 +12,8 @@ public class MetricSystemTest {
 		System.out.println(ms.units());
 		System.out.println("Base = "+ms.base());
 		
-		System.out.println(SiLengthMetricSystem.METER.canTransformTo(ImperialLengthMetricSystem.FOOT));	// No: different metric systems
+		System.out.println(SiLengthMetricSystem.METER.canTransformTo(ImperialLengthMetricSystem.FOOT));
+		// No: different metric systems
 	}
 
 }

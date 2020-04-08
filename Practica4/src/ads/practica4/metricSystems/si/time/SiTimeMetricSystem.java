@@ -1,6 +1,6 @@
 package ads.practica4.metricSystems.si.time;
 
-import ads.practica4.metricSystems.si.SiMetricSystem;
+import ads.practica4.metricSystems.MetricSystem;
 import ads.practica4.quantity.Quantity;
 
 /**
@@ -10,7 +10,7 @@ import ads.practica4.quantity.Quantity;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiTimeMetricSystem extends SiMetricSystem{
+public class SiTimeMetricSystem extends MetricSystem{
 
     public static final SiTimeMetricSystem MILISECOND = new SiTimeMetricSystem("ms", 0.001);
     public static final SiTimeMetricSystem SECOND = new SiTimeMetricSystem("s", 1);

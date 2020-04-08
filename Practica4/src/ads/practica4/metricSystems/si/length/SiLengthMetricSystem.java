@@ -1,6 +1,6 @@
 package ads.practica4.metricSystems.si.length;
 
-import ads.practica4.metricSystems.si.SiMetricSystem;
+import ads.practica4.metricSystems.MetricSystem;
 import ads.practica4.quantity.Quantity;
 
 /**
@@ -10,7 +10,7 @@ import ads.practica4.quantity.Quantity;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiLengthMetricSystem extends SiMetricSystem {
+public class SiLengthMetricSystem extends MetricSystem {
 
     public static final SiLengthMetricSystem MILIMETER = new SiLengthMetricSystem("mm", 0.001);
     public static final SiLengthMetricSystem METER = new SiLengthMetricSystem("m", 1);
