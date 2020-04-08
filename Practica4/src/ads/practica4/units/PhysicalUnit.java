@@ -1,30 +1,30 @@
-package ads.practica4.metricSystems;
+package ads.practica4.units;
 
 import ads.practica4.quantity.Quantity;
 import ads.practica4.units.IPhysicalUnit;
 import ads.practica4.magnitude.exceptions.QuantityException;
 
 /**
- * Clase MetricSystem
+ * Clase PhysicalUnit
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public abstract class MetricSystem implements IPhysicalUnit {
+public class PhysicalUnit implements IPhysicalUnit {
 
     private final Quantity quantity;
     private final String abbrev;
     private final double eqVal;
 
     /**
-     * Constructor de SiMetricSystem
+     * Constructor de PhysicalUnit
      * 
      * @param abbrev abreviatura de la magnitud de medida
      * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
      * @param quantity elemento de la enumeracion que indica que cantidad mide la unidad
      */
-    protected MetricSystem(String abbrev, double eqVal, Quantity quantity) {
+    public PhysicalUnit(String abbrev, double eqVal, Quantity quantity) {
         this.abbrev = abbrev;
         this.eqVal = eqVal;
         this.quantity = quantity;
@@ -63,7 +63,7 @@ public abstract class MetricSystem implements IPhysicalUnit {
             throw new QuantityException("Quantities " + u.getQuantity() + " and " + quantity + " are not compatible"); 
 
         double val1 = this.eqVal;
-        double val2 = ((MetricSystem)u).getEqVal();
+        double val2 = ((PhysicalUnit)u).getEqVal();
 
         return d*(val1/val2);
     }

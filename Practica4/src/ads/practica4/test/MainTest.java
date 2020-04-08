@@ -1,10 +1,10 @@
 package ads.practica4.test;
 
-import magnitude.IMagnitude;
-import magnitude.Magnitude;
-import magnitude.exceptions.QuantityException;
-import metricSystems.si.length.SiLengthMetricSystem;
-import metricSystems.si.time.SiTimeMetricSystem;
+import ads.practica4.magnitude.IMagnitude;
+import ads.practica4.magnitude.Magnitude;
+import ads.practica4.magnitude.exceptions.QuantityException;
+import ads.practica4.metricSystems.si.length.SiLengthMetricSystem;
+import ads.practica4.metricSystems.si.time.SiTimeMetricSystem;
 
 public class MainTest {
 

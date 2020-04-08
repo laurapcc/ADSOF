@@ -1,7 +1,10 @@
 package ads.practica4.metricSystems.si.length;
 
-import ads.practica4.metricSystems.MetricSystem;
+import ads.practica4.metricSystems.*;
 import ads.practica4.quantity.Quantity;
+import ads.practica4.units.*;
+
+import java.util.*;
 
 /**
  * Clase SiLengthMestricSystem
@@ -10,20 +13,34 @@ import ads.practica4.quantity.Quantity;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiLengthMetricSystem extends MetricSystem {
+public class SiLengthMetricSystem implements IMetricSystem {
 
-    public static final SiLengthMetricSystem MILIMETER = new SiLengthMetricSystem("mm", 0.001);
-    public static final SiLengthMetricSystem METER = new SiLengthMetricSystem("m", 1);
-    public static final SiLengthMetricSystem KILOMETER = new SiLengthMetricSystem("km", 1000);
+    public static final IMetricSystem SYSTEM = new SiLengthMetricSystem();
+    public static final IPhysicalUnit MILIMETER = new PhysicalUnit("mm", 0.001, Quantity.LENGTH);
+    public static final IPhysicalUnit METER = new PhysicalUnit("m", 1, Quantity.LENGTH);
+    public static final IPhysicalUnit KILOMETER = new PhysicalUnit("km", 1000, Quantity.LENGTH);
+
+    private SiLengthMetricSystem() {}
 
     /**
-     * Constructor privado de SiLengthMetricSystem
+     * Devuelve la base del sistema actual
      * 
-     * @param abbrev abreviatura de la magnitud de medida
-     * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
+     * @return : unidad fisica que es la base del sistema
      */
-    private SiLengthMetricSystem(String abbrev, double eqVal) {
-        super(abbrev, eqVal, Quantity.LENGTH);
+    public IPhysicalUnit base() {
+        return METER;
     }
 
+    /**
+     * Devuelve la coleccion de las unidades del sistema acutal
+     * 
+     * @return : lista con las unidades del sistema
+     */
+    public Collection<IPhysicalUnit> units() {
+        Collection<IPhysicalUnit> col = new ArrayList<IPhysicalUnit>();
+        col.add(KILOMETER);
+        col.add(METER);
+        col.add(MILIMETER);
+        return col;
+    }
 }

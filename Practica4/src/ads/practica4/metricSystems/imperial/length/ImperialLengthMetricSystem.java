@@ -1,7 +1,10 @@
 package ads.practica4.metricSystems.imperial.length;
 
-import ads.practica4.metricSystems.MetricSystem;
+import ads.practica4.metricSystems.IMetricSystem;
 import ads.practica4.quantity.Quantity;
+import ads.practica4.units.*;
+
+import java.util.*;
 
 /**
  * Clase ImperialLengthMestricSystem
@@ -10,20 +13,35 @@ import ads.practica4.quantity.Quantity;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class ImperialLengthMetricSystem extends MetricSystem {
+public class ImperialLengthMetricSystem implements IMetricSystem{
 
-    public static final ImperialLengthMetricSystem INCH = new ImperialLengthMetricSystem("in", (double)1/12);
-    public static final ImperialLengthMetricSystem FOOT = new ImperialLengthMetricSystem("ft", 1);
-    public static final ImperialLengthMetricSystem MILE = new ImperialLengthMetricSystem("mi", 5280);
+    public static final ImperialLengthMetricSystem SYSTEM = new ImperialLengthMetricSystem();
+    public static final IPhysicalUnit INCH = new PhysicalUnit("in", (double)1/12, Quantity.LENGTH);
+    public static final IPhysicalUnit FOOT = new PhysicalUnit("ft", 1, Quantity.LENGTH);
+    public static final IPhysicalUnit MILE = new PhysicalUnit("mi", 5280, Quantity.LENGTH);
+
+    private ImperialLengthMetricSystem() {}
 
     /**
-     * Constructor privado de ImperialLengthMetricSystem
+     * Devuelve la base del sistema actual
      * 
-     * @param abbrev abreviatura de la magnitud de medida
-     * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
+     * @return : unidad fisica que es la base del sistema
      */
-    private ImperialLengthMetricSystem(String abbrev, double eqVal) {
-        super(abbrev, eqVal, Quantity.LENGTH);
+    public IPhysicalUnit base(){
+        return FOOT;
+    }
+
+    /**
+     * Devuelve la coleccion de las unidades del sistema acutal
+     * 
+     * @return : lista con las unidades del sistema
+     */
+    public Collection<IPhysicalUnit> units(){
+        Collection<IPhysicalUnit> col = new ArrayList<IPhysicalUnit>();
+        col.add(MILE);
+        col.add(FOOT);
+        col.add(INCH);
+        return col;
     }
     
 }

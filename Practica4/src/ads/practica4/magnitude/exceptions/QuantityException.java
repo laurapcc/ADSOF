@@ -11,4 +11,9 @@ public class QuantityException extends Exception {
     public QuantityException(String mssg) {
         super(mssg);
     }
+
+    @Override
+    public String toString(){
+        return getMessage();
+    }
 }
