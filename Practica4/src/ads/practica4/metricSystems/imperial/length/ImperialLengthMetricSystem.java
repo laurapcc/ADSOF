@@ -3,6 +3,7 @@ package ads.practica4.metricSystems.imperial.length;
 import ads.practica4.metricSystems.IMetricSystem;
 import ads.practica4.quantity.Quantity;
 import ads.practica4.units.*;
+import ads.practica4.units.imperial.length.ImperialLengthPhysicalUnit;
 
 import java.util.*;
 
@@ -16,9 +17,9 @@ import java.util.*;
 public class ImperialLengthMetricSystem implements IMetricSystem{
 
     public static final ImperialLengthMetricSystem SYSTEM = new ImperialLengthMetricSystem();
-    public static final IPhysicalUnit INCH = new PhysicalUnit("in", (double)1/12, Quantity.LENGTH);
-    public static final IPhysicalUnit FOOT = new PhysicalUnit("ft", 1, Quantity.LENGTH);
-    public static final IPhysicalUnit MILE = new PhysicalUnit("mi", 5280, Quantity.LENGTH);
+    public static final IPhysicalUnit INCH = new ImperialLengthPhysicalUnit("in", (double)1/12);
+    public static final IPhysicalUnit FOOT = new ImperialLengthPhysicalUnit("ft", 1);
+    public static final IPhysicalUnit MILE = new ImperialLengthPhysicalUnit("mi", 5280);
 
     private ImperialLengthMetricSystem() {}
 

@@ -24,7 +24,7 @@ public class PhysicalUnit implements IPhysicalUnit {
      * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
      * @param quantity elemento de la enumeracion que indica que cantidad mide la unidad
      */
-    public PhysicalUnit(String abbrev, double eqVal, Quantity quantity) {
+    protected PhysicalUnit(String abbrev, double eqVal, Quantity quantity) {
         this.abbrev = abbrev;
         this.eqVal = eqVal;
         this.quantity = quantity;
@@ -48,7 +48,7 @@ public class PhysicalUnit implements IPhysicalUnit {
      * @return : true si se puede transomar, false en caso contrario
      */
     public boolean canTransformTo(IPhysicalUnit u) {
-        return quantity.equals(u.getQuantity());
+        return this.getClass().equals(u.getClass());
     }
 
     /**

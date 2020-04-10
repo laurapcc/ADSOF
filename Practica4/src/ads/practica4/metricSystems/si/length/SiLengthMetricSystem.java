@@ -3,6 +3,7 @@ package ads.practica4.metricSystems.si.length;
 import ads.practica4.metricSystems.*;
 import ads.practica4.quantity.Quantity;
 import ads.practica4.units.*;
+import ads.practica4.units.si.length.SiLengthPhysicalUnit;
 
 import java.util.*;
 
@@ -16,9 +17,9 @@ import java.util.*;
 public class SiLengthMetricSystem implements IMetricSystem {
 
     public static final IMetricSystem SYSTEM = new SiLengthMetricSystem();
-    public static final IPhysicalUnit MILIMETER = new PhysicalUnit("mm", 0.001, Quantity.LENGTH);
-    public static final IPhysicalUnit METER = new PhysicalUnit("m", 1, Quantity.LENGTH);
-    public static final IPhysicalUnit KILOMETER = new PhysicalUnit("km", 1000, Quantity.LENGTH);
+    public static final IPhysicalUnit MILIMETER = new SiLengthPhysicalUnit("mm", 0.001);
+    public static final IPhysicalUnit METER = new SiLengthPhysicalUnit("m", 1);
+    public static final IPhysicalUnit KILOMETER = new SiLengthPhysicalUnit("km", 1000);
 
     private SiLengthMetricSystem() {}
 

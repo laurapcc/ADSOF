@@ -3,6 +3,7 @@ package ads.practica4.metricSystems.si.time;
 import ads.practica4.metricSystems.*;
 import ads.practica4.quantity.Quantity;
 import ads.practica4.units.*;
+import ads.practica4.units.si.time.SiTimePhysicalUnit;
 
 import java.util.*;
 
@@ -16,9 +17,9 @@ import java.util.*;
 public class SiTimeMetricSystem implements IMetricSystem {
 
     public static final IMetricSystem SYSTEM = new SiTimeMetricSystem();
-    public static final IPhysicalUnit MILISECOND = new PhysicalUnit("ms", 0.001, Quantity.TIME);
-    public static final IPhysicalUnit SECOND = new PhysicalUnit("s", 1, Quantity.TIME);
-    public static final IPhysicalUnit HOUR = new PhysicalUnit("h", 3600, Quantity.TIME);
+    public static final IPhysicalUnit MILISECOND = new SiTimePhysicalUnit("ms", 0.001);
+    public static final IPhysicalUnit SECOND = new SiTimePhysicalUnit("s", 1);
+    public static final IPhysicalUnit HOUR = new SiTimePhysicalUnit("h", 3600);
 
     private SiTimeMetricSystem() {}
 
