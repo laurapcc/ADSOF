@@ -2,6 +2,7 @@ package ads.practica4.units;
 
 import ads.practica4.quantity.Quantity;
 import ads.practica4.units.IPhysicalUnit;
+import ads.practica4.metricSystems.IMetricSystem;
 import ads.practica4.magnitude.exceptions.QuantityException;
 
 /**
@@ -16,6 +17,7 @@ public class PhysicalUnit implements IPhysicalUnit {
     private final Quantity quantity;
     private final String abbrev;
     private final double eqVal;
+    private final IMetricSystem system;
 
     /**
      * Constructor de PhysicalUnit
@@ -23,11 +25,13 @@ public class PhysicalUnit implements IPhysicalUnit {
      * @param abbrev abreviatura de la magnitud de medida
      * @param eqVal valor equivalente de la unidad respecto a la unidad base del sistema
      * @param quantity elemento de la enumeracion que indica que cantidad mide la unidad
+     * @param system sistema metrico al que pertenece la unidad
      */
-    public PhysicalUnit(String abbrev, double eqVal, Quantity quantity) {
+    public PhysicalUnit(String abbrev, double eqVal, Quantity quantity, IMetricSystem system) {
         this.abbrev = abbrev;
         this.eqVal = eqVal;
         this.quantity = quantity;
+        this.system = system;
     }
 
     /**
@@ -48,7 +52,9 @@ public class PhysicalUnit implements IPhysicalUnit {
      * @return : true si se puede transomar, false en caso contrario
      */
     public boolean canTransformTo(IPhysicalUnit u) {
-        return quantity.equals(u.getQuantity());
+        if (!system.equals(u.getMetricSystem()))
+            return false;
+        return true;
     }
 
     /**
@@ -84,6 +90,15 @@ public class PhysicalUnit implements IPhysicalUnit {
      */
     public String abbrev() {
         return this.abbrev;
+    }
+
+    /**
+     * Devuelve el sistema metrico al que pertenece la unidad fisica
+     * 
+     * @return : sistema metrico de la unidad fisica
+     */
+    public IMetricSystem getMetricSystem() {
+        return system;
     }
 
     /**

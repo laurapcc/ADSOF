@@ -16,9 +16,9 @@ import java.util.*;
 public class SiLengthMetricSystem implements IMetricSystem {
 
     public static final IMetricSystem SYSTEM = new SiLengthMetricSystem();
-    public static final IPhysicalUnit MILIMETER = new PhysicalUnit("mm", 0.001, Quantity.LENGTH);
-    public static final IPhysicalUnit METER = new PhysicalUnit("m", 1, Quantity.LENGTH);
-    public static final IPhysicalUnit KILOMETER = new PhysicalUnit("km", 1000, Quantity.LENGTH);
+    public static final IPhysicalUnit MILIMETER = new PhysicalUnit("mm", 0.001, Quantity.LENGTH, SYSTEM);
+    public static final IPhysicalUnit METER = new PhysicalUnit("m", 1, Quantity.LENGTH, SYSTEM);
+    public static final IPhysicalUnit KILOMETER = new PhysicalUnit("km", 1000, Quantity.LENGTH, SYSTEM);
 
     private SiLengthMetricSystem() {}
 

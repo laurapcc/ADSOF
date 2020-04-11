@@ -13,12 +13,12 @@ import java.util.*;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class ImperialLengthMetricSystem implements IMetricSystem{
+public class ImperialLengthMetricSystem implements IMetricSystem {
 
     public static final ImperialLengthMetricSystem SYSTEM = new ImperialLengthMetricSystem();
-    public static final IPhysicalUnit INCH = new PhysicalUnit("in", (double)1/12, Quantity.LENGTH);
-    public static final IPhysicalUnit FOOT = new PhysicalUnit("ft", 1, Quantity.LENGTH);
-    public static final IPhysicalUnit MILE = new PhysicalUnit("mi", 5280, Quantity.LENGTH);
+    public static final IPhysicalUnit INCH = new PhysicalUnit("in", (double)1/12, Quantity.LENGTH, SYSTEM);
+    public static final IPhysicalUnit FOOT = new PhysicalUnit("ft", 1, Quantity.LENGTH, SYSTEM);
+    public static final IPhysicalUnit MILE = new PhysicalUnit("mi", 5280, Quantity.LENGTH, SYSTEM);
 
     private ImperialLengthMetricSystem() {}
 
@@ -36,7 +36,7 @@ public class ImperialLengthMetricSystem implements IMetricSystem{
      * 
      * @return : lista con las unidades del sistema
      */
-    public Collection<IPhysicalUnit> units(){
+    public Collection<IPhysicalUnit> units() {
         Collection<IPhysicalUnit> col = new ArrayList<IPhysicalUnit>();
         col.add(MILE);
         col.add(FOOT);

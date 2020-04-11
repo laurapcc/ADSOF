@@ -16,9 +16,9 @@ import java.util.*;
 public class SiTimeMetricSystem implements IMetricSystem {
 
     public static final IMetricSystem SYSTEM = new SiTimeMetricSystem();
-    public static final IPhysicalUnit MILISECOND = new PhysicalUnit("ms", 0.001, Quantity.TIME);
-    public static final IPhysicalUnit SECOND = new PhysicalUnit("s", 1, Quantity.TIME);
-    public static final IPhysicalUnit HOUR = new PhysicalUnit("h", 3600, Quantity.TIME);
+    public static final IPhysicalUnit MILISECOND = new PhysicalUnit("ms", 0.001, Quantity.TIME, SYSTEM);
+    public static final IPhysicalUnit SECOND = new PhysicalUnit("s", 1, Quantity.TIME, SYSTEM);
+    public static final IPhysicalUnit HOUR = new PhysicalUnit("h", 3600, Quantity.TIME, SYSTEM);
 
     private SiTimeMetricSystem() {}
 

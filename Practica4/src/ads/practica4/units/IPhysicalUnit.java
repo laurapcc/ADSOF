@@ -2,6 +2,7 @@ package ads.practica4.units;
 
 import ads.practica4.magnitude.exceptions.*;
 import ads.practica4.quantity.Quantity;
+import ads.practica4.metricSystems.IMetricSystem;
 
 
 /**
@@ -16,5 +17,5 @@ public interface IPhysicalUnit {
     double transformTo(double d, IPhysicalUnit u) throws QuantityException;
     Quantity getQuantity();
     String abbrev();
-    /*IMetricSystem getMetricSystem(); // No implementar de momento en este apartado*/
+    IMetricSystem getMetricSystem();
 }
