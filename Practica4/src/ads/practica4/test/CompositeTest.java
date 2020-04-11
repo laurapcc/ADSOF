@@ -1,16 +1,16 @@
 package ads.practica4.test;
 
-import units.CompositeUnit;
-import units.ICompositeUnit.Operator;
-import units.PhysicalUnit;
-import magnitude.IMagnitude;
-import magnitude.Magnitude;
-import magnitude.exceptions.QuantityException;
-import metricSystems.imperial.ImperialMetricSystem;
-import metricSystems.imperial.length.ImperialLengthMetricSystem;
-import metricSystems.si.length.SiLengthMetricSystem;
-import metricSystems.si.length.converters.SiLength2ImperialConverter;
-import metricSystems.si.time.SiTimeMetricSystem;
+import ads.practica4.units.CompositeUnit;
+import ads.practica4.units.ICompositeUnit.Operator;
+import ads.practica4.units.PhysicalUnit;
+import ads.practica4.magnitude.IMagnitude;
+import ads.practica4.magnitude.Magnitude;
+import ads.practica4.magnitude.exceptions.QuantityException;
+import ads.practica4.metricSystems.imperial.ImperialMetricSystem;
+import ads.practica4.metricSystems.imperial.length.ImperialLengthMetricSystem;
+import ads.practica4.metricSystems.si.length.SiLengthMetricSystem;
+import ads.practica4.metricSystems.si.length.converters.SiLength2ImperialConverter;
+import ads.practica4.metricSystems.si.time.SiTimeMetricSystem;
 
 public class CompositeTest {
 	public static void main(String[] args) throws QuantityException{

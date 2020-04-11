@@ -1,8 +1,7 @@
 package ads.practica4.metricSystems;
 
-import java.util.Collection;
-
-import ads.practica4.units.IPhysicalUnit;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Clase abstracta AbstractMetricSystem
@@ -11,9 +10,20 @@ import ads.practica4.units.IPhysicalUnit;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public abstract class AbstractMetricSystem implements IMetricSystem{
-    public IPhysicalUnit base(){
-        for (at in Abs)
+public abstract class AbstractMetricSystem implements IMetricSystem {
+
+    public static Set<IMetricSystemConverter> converters = new HashSet<IMetricSystemConverter>();
+
+    public static void registerConverter(IMetricSystemConverter converter) {
+        converters.add(converter);
+        converters.add(converter.reverse());
     }
-    public Collection<IPhysicalUnit> units();
+
+    public IMetricSystemConverter getConverter(IMetricSystem to) {
+        for (IMetricSystemConverter converter : converters) {
+            if (equals(converter.sourceSystem()) && to.equals(converter.targetSystem()))
+                return converter;
+        }
+        return null;
+    }
 }

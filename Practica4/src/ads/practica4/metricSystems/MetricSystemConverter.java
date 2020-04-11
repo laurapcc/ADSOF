@@ -1,11 +1,9 @@
 package ads.practica4.metricSystems;
 
 import ads.practica4.magnitude.IMagnitude;
+import ads.practica4.magnitude.Magnitude;
 import ads.practica4.magnitude.exceptions.UnknownUnitException;
-import ads.practica4.metricSystems.IMetricSystem;
 import ads.practica4.metricSystems.IMetricSystemConverter;
-import ads.practica4.metricSystems.imperial.length.ImperialLengthMetricSystem;
-import ads.practica4.metricSystems.si.length.SiLengthMetricSystem;
 import ads.practica4.units.IPhysicalUnit;
 
 /**
@@ -15,13 +13,13 @@ import ads.practica4.units.IPhysicalUnit;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public abstract class AbstractMetricSystemConverter implements IMetricSystemConverter {
+public class MetricSystemConverter implements IMetricSystemConverter {
 
-    private IMetricSystem source;
-    private IMetricSystem target;
-    private double multiplicador;
+    private final IMetricSystem source;
+    private final IMetricSystem target;
+    private final double multiplicador;
 
-    public AbstractMetricSystemConverter(IMetricSystem source, IMetricSystem target, double multiplicador) {
+    public MetricSystemConverter(IMetricSystem source, IMetricSystem target, double multiplicador) {
         this.source = source;
         this.target = target;
         this.multiplicador = multiplicador;
@@ -36,11 +34,14 @@ public abstract class AbstractMetricSystemConverter implements IMetricSystemConv
     }
 
     public IMagnitude transformTo(IMagnitude from, IPhysicalUnit to) throws UnknownUnitException {
+        if (!target.base().equals(to))
+            throw new UnknownUnitException("Invalid Physical Unit");
         
+        return new Magnitude(from.getValue()*multiplicador, to);
     }
 
     public IMetricSystemConverter reverse() {
-        IMetricSystemConverter reverse = new AbstractMetricSystemConverter(target, source, 1/multiplicador);
+        IMetricSystemConverter reverse = new MetricSystemConverter(target, source, 1/multiplicador);
         return reverse;
     }
 }

@@ -1,6 +1,6 @@
 package ads.practica4.metricSystems.si.length.converters;
 
-import ads.practica4.metricSystems.AbstractMetricSystemConverter;
+import ads.practica4.metricSystems.MetricSystemConverter;
 import ads.practica4.metricSystems.imperial.length.ImperialLengthMetricSystem;
 import ads.practica4.metricSystems.si.length.SiLengthMetricSystem;
 
@@ -11,7 +11,7 @@ import ads.practica4.metricSystems.si.length.SiLengthMetricSystem;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiLength2ImperialConverter extends AbstractMetricSystemConverter {
+public class SiLength2ImperialConverter extends MetricSystemConverter {
 
     /**
      * Constructor de SiLenght2ImperialConverter

@@ -1,6 +1,9 @@
 package ads.practica4.magnitude;
 
 import ads.practica4.magnitude.exceptions.QuantityException;
+import ads.practica4.magnitude.exceptions.UnknownUnitException;
+import ads.practica4.metricSystems.IMetricSystem;
+import ads.practica4.metricSystems.IMetricSystemConverter;
 import ads.practica4.units.*;
 
 /**
@@ -57,13 +60,29 @@ public class Magnitude implements IMagnitude{
      * @return : magnitud acutal con la nueva unidad fisica
      */
     public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
-        if (!unit.canTransformTo(c))
-            throw new QuantityException("Quantities " + c.getQuantity() + " and " + getUnit().getQuantity() + " are not compatible");
-        
-        value = unit.transformTo(value, c);
-        unit = c;
-
-        return this;
+        if (unit.canTransformTo(c)) {
+            value = unit.transformTo(value, c);
+            unit = c;
+            return this;
+        }
+        else {
+            IMetricSystem unitMS = unit.getMetricSystem();
+            IMetricSystem cMS = c.getMetricSystem();
+            IMetricSystemConverter converter = unitMS.getConverter(cMS);
+            if (converter == null)
+                throw new QuantityException("Cannot transform " + unit + " to " + c);
+            else {
+                transformTo(unitMS.base());
+                try {
+                    value = converter.transformTo(this, cMS.base()).getValue();
+                    unit = cMS.base();
+                } catch(UnknownUnitException e) {
+                    throw new QuantityException("Cannot transform " + unit + " to " + c);
+                }
+                transformTo(c);
+                return this;
+            }
+        }
     }
 
     /**

@@ -1,6 +1,6 @@
 package ads.practica4.metricSystems.imperial.length;
 
-import ads.practica4.metricSystems.IMetricSystem;
+import ads.practica4.metricSystems.AbstractMetricSystem;
 import ads.practica4.quantity.Quantity;
 import ads.practica4.units.*;
 
@@ -13,7 +13,7 @@ import java.util.*;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class ImperialLengthMetricSystem implements IMetricSystem {
+public class ImperialLengthMetricSystem extends AbstractMetricSystem {
 
     public static final ImperialLengthMetricSystem SYSTEM = new ImperialLengthMetricSystem();
     public static final IPhysicalUnit INCH = new PhysicalUnit("in", (double)1/12, Quantity.LENGTH, SYSTEM);
@@ -43,5 +43,4 @@ public class ImperialLengthMetricSystem implements IMetricSystem {
         col.add(INCH);
         return col;
     }
-    
 }

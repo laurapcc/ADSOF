@@ -14,4 +14,5 @@ import ads.practica4.units.IPhysicalUnit;
 public interface IMetricSystem {
     IPhysicalUnit base();
     Collection<IPhysicalUnit> units();
+    IMetricSystemConverter getConverter(IMetricSystem to);
 }

@@ -13,7 +13,7 @@ import java.util.*;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiTimeMetricSystem implements IMetricSystem {
+public class SiTimeMetricSystem extends AbstractMetricSystem {
 
     public static final IMetricSystem SYSTEM = new SiTimeMetricSystem();
     public static final IPhysicalUnit MILISECOND = new PhysicalUnit("ms", 0.001, Quantity.TIME, SYSTEM);

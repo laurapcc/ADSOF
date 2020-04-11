@@ -13,14 +13,15 @@ import java.util.*;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class SiLengthMetricSystem implements IMetricSystem {
+public class SiLengthMetricSystem extends AbstractMetricSystem {
 
     public static final IMetricSystem SYSTEM = new SiLengthMetricSystem();
     public static final IPhysicalUnit MILIMETER = new PhysicalUnit("mm", 0.001, Quantity.LENGTH, SYSTEM);
     public static final IPhysicalUnit METER = new PhysicalUnit("m", 1, Quantity.LENGTH, SYSTEM);
     public static final IPhysicalUnit KILOMETER = new PhysicalUnit("km", 1000, Quantity.LENGTH, SYSTEM);
 
-    private SiLengthMetricSystem() {}
+    private SiLengthMetricSystem() {
+    }
 
     /**
      * Devuelve la base del sistema actual
