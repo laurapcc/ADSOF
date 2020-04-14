@@ -52,9 +52,16 @@ public class PhysicalUnit implements IPhysicalUnit {
      * @return : true si se puede transomar, false en caso contrario
      */
     public boolean canTransformTo(IPhysicalUnit u) {
-        if (!system.equals(u.getMetricSystem()))
-            return false;
-        return true;
+        if (u instanceof PhysicalUnit) {
+            if (!system.equals(u.getMetricSystem())) {
+                if (system.getConverter(u.getMetricSystem()) != null)
+                    return true;
+            }
+            else {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

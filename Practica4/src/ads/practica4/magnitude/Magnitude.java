@@ -2,7 +2,6 @@ package ads.practica4.magnitude;
 
 import ads.practica4.magnitude.exceptions.QuantityException;
 import ads.practica4.magnitude.exceptions.UnknownUnitException;
-import ads.practica4.metricSystems.IMetricSystem;
 import ads.practica4.metricSystems.IMetricSystemConverter;
 import ads.practica4.units.*;
 
@@ -13,7 +12,7 @@ import ads.practica4.units.*;
  * @author Rubén García ruben.garciadelafuente@uam.es
  *
  */
-public class Magnitude implements IMagnitude{
+public class Magnitude implements IMagnitude {
 
     double value;
     IPhysicalUnit unit;
@@ -60,29 +59,36 @@ public class Magnitude implements IMagnitude{
      * @return : magnitud acutal con la nueva unidad fisica
      */
     public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
-        if (unit.canTransformTo(c)) {
-            value = unit.transformTo(value, c);
-            unit = c;
-            return this;
-        }
-        else {
-            IMetricSystem unitMS = unit.getMetricSystem();
-            IMetricSystem cMS = c.getMetricSystem();
-            IMetricSystemConverter converter = unitMS.getConverter(cMS);
-            if (converter == null)
-                throw new QuantityException("Cannot transform " + unit + " to " + c);
-            else {
-                transformTo(unitMS.base());
-                try {
-                    value = converter.transformTo(this, cMS.base()).getValue();
-                    unit = cMS.base();
-                } catch(UnknownUnitException e) {
-                    throw new QuantityException("Cannot transform " + unit + " to " + c);
-                }
-                transformTo(c);
-                return this;
+        if (!unit.getMetricSystem().equals(c.getMetricSystem())) {
+            IMetricSystemConverter converter = unit.getMetricSystem().getConverter(c.getMetricSystem());
+            if (converter == null) {
+                throw new QuantityException("Cannot convert " + unit + " to " + c);
+            }
+            try {
+                converter.transformTo(this, c);
+            } catch (UnknownUnitException e) {
+                throw new QuantityException("Cannot convert " + unit + " to " + c);
             }
         }
+        else {
+            value = unit.transformTo(value, c);
+            unit = c;
+        }
+        return this;
+    }
+
+    /**
+     * Establece la unidad de la magnitud
+     */
+    public void setUnit(IPhysicalUnit unit) {
+        this.unit = unit;
+    }
+
+    /**
+     * Establece el valor numerico de la magnitud
+     */
+    public void setValue(double value) {
+        this.value = value;
     }
 
     /**

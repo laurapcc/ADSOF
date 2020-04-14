@@ -2,6 +2,7 @@ package ads.practica4.metricSystems;
 
 import ads.practica4.magnitude.IMagnitude;
 import ads.practica4.magnitude.Magnitude;
+import ads.practica4.magnitude.exceptions.QuantityException;
 import ads.practica4.magnitude.exceptions.UnknownUnitException;
 import ads.practica4.metricSystems.IMetricSystemConverter;
 import ads.practica4.units.IPhysicalUnit;
@@ -34,10 +35,19 @@ public class MetricSystemConverter implements IMetricSystemConverter {
     }
 
     public IMagnitude transformTo(IMagnitude from, IPhysicalUnit to) throws UnknownUnitException {
-        if (!target.base().equals(to))
+        if (!source.units().contains(from.getUnit()) || !target.units().contains(to))
             throw new UnknownUnitException("Invalid Physical Unit");
         
-        return new Magnitude(from.getValue()*multiplicador, to);
+        try {
+            from.transformTo(source.base());
+            ((Magnitude)from).setUnit(target.base());
+            ((Magnitude)from).setValue(from.getValue()*multiplicador);
+            from.transformTo(to);
+        } catch (QuantityException e) {
+            throw new UnknownUnitException("Invalid Physical Unit");
+        }
+        
+        return from;
     }
 
     public IMetricSystemConverter reverse() {
