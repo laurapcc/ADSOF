@@ -36,7 +36,11 @@ public class Magnitude implements IMagnitude {
      * @return : magnitud actual con la adicion realizada
      */
     public IMagnitude add(IMagnitude m) throws QuantityException {
-        value += m.getUnit().transformTo(m.getValue(), unit);
+        try{
+            value += m.getUnit().transformTo(m.getValue(), unit);
+        }catch(QuantityException e){
+            System.out.println(e);
+        }
         return this;
     }
 
@@ -48,7 +52,11 @@ public class Magnitude implements IMagnitude {
      * @return : magnitud actual con la sustraccion realizada
      */
     public IMagnitude subs(IMagnitude m) throws QuantityException {
-        value -= m.getUnit().transformTo(m.getValue(), unit);
+        try{
+            value -= m.getUnit().transformTo(m.getValue(), unit);
+        }catch(QuantityException e){
+            System.out.println(e);
+        }
         return this;
     }
 
@@ -71,7 +79,11 @@ public class Magnitude implements IMagnitude {
             }
         }
         else {
-            value = unit.transformTo(value, c);
+            try{
+                value = unit.transformTo(value, c);
+            }catch(QuantityException e){
+                System.out.println(e);
+            }
             unit = c;
         }
         return this;

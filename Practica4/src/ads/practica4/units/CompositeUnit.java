@@ -1,10 +1,11 @@
 package ads.practica4.units;
 
+import ads.practica4.magnitude.IMagnitude;
+import ads.practica4.magnitude.Magnitude;
 import ads.practica4.magnitude.exceptions.QuantityException;
 import ads.practica4.metricSystems.IMetricSystem;
 import ads.practica4.quantity.Quantity;
-import ads.practica4.units.ICompositeUnit.ICompositeUnit;
-import ads.practica4.units.ICompositeUnit.Operator;
+import ads.practica4.units.ICompositeUnit.*;
 
 /**
  * Clase CompositeUnit
@@ -44,7 +45,7 @@ public class CompositeUnit implements ICompositeUnit {
     }
 
     /**
-     * Devuelve la unidad fisica situada a la izquierda de la unidad compuesta
+     * Devuelve la unidad fisica situada a la derecha de la unidad compuesta
      * 
      * @return : IPhysicalUnit
      */
@@ -61,34 +62,31 @@ public class CompositeUnit implements ICompositeUnit {
      */
     public boolean canTransformTo(IPhysicalUnit u) {
         if (u instanceof CompositeUnit) {
-            if (!leftUnit.getMetricSystem().equals(((CompositeUnit)u).getLeftUnit().getMetricSystem()) || 
-                !rightUnit.getMetricSystem().equals(((CompositeUnit)u).getRightUnit().getMetricSystem())) {
-                if (leftUnit.getMetricSystem().getConverter(((CompositeUnit)u).getLeftUnit().getMetricSystem()) != null &&
-                    rightUnit.getMetricSystem().getConverter(((CompositeUnit)u).getRightUnit().getMetricSystem()) != null)
-                    return true;
-            }
-            else {
+            if (leftUnit.canTransformTo(((CompositeUnit)u).getLeftUnit()) && 
+                rightUnit.canTransformTo(((CompositeUnit)u).getRightUnit()))
                 return true;
-            }
         }
         return false;
     }
 
-    /**
-     * Transforma la unidad d de la magnitud actual a la pasada como argumento
-     * 
-     * @param d : cantidad que queremos cambiar de magnitud
-     * @param u : unidad de medida a la cual queremos transformar
-     * @return : resultado de la transformacion
-     */
+
+
+    
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
         if (!canTransformTo(u))
             throw new QuantityException("Quantities " + u.getQuantity() + " and " + getQuantity() + " are not compatible"); 
 
-        double val1 = ((PhysicalUnit)leftUnit).getEqVal();
-        double val2 = ((PhysicalUnit)u).getEqVal();
+        IMagnitude leftMagnitude = new Magnitude(1, leftUnit);
+        IMagnitude rightMagnitude = new Magnitude(1, rightUnit);
+        leftMagnitude = leftMagnitude.transformTo(((CompositeUnit)u).getLeftUnit());
+        rightMagnitude = rightMagnitude.transformTo(((CompositeUnit)u).getRightUnit());
+        double val1 = leftMagnitude.getValue();
+        double val2 = rightMagnitude.getValue();
 
-        return d*(val1/val2);
+        if (operator.equals(Operator.MUL))
+            return d*val1*val2;
+        else
+            return d*(val1/val2);
     }
 
     /**
@@ -106,10 +104,7 @@ public class CompositeUnit implements ICompositeUnit {
      * @return : atributo abbrev de la magnitud
      */
     public String abbrev() {
-        if (operator.equals(Operator.MUL))
-            return leftUnit.abbrev() + " * " + rightUnit.abbrev();
-        else
-            return leftUnit.abbrev() + " / " + rightUnit.abbrev();
+        return leftUnit.abbrev() + operator + rightUnit.abbrev();
     }
 
     /**
