@@ -8,6 +8,12 @@ package ads.practica4.magnitude.exceptions;
  *
  */
 public class UnknownUnitException extends Exception {
+    
+    /**
+     * Constructor de la excepcion
+     * 
+     * @param mssg : mensaje explicatorio del origen de la excepcion
+     */
     public UnknownUnitException(String mssg) {
         super(mssg);
     }

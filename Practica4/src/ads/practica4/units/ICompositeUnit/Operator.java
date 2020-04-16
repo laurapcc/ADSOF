@@ -1,7 +1,7 @@
 package ads.practica4.units.ICompositeUnit;
 
 /**
- * Enumeracion Quantity
+ * Enumeracion Operator
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es

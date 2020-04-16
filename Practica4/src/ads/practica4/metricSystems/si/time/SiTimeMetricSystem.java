@@ -20,6 +20,9 @@ public class SiTimeMetricSystem extends AbstractMetricSystem {
     public static final IPhysicalUnit SECOND = new PhysicalUnit("s", 1, Quantity.TIME, SYSTEM);
     public static final IPhysicalUnit HOUR = new PhysicalUnit("h", 3600, Quantity.TIME, SYSTEM);
 
+    /**
+     * Constructor privado que permite el patron Singleton
+     */
     private SiTimeMetricSystem() {}
 
     /**

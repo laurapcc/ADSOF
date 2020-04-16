@@ -20,6 +20,13 @@ public class CompositeUnit implements ICompositeUnit {
     private IPhysicalUnit leftUnit;
     private IPhysicalUnit rightUnit;
 
+    /**
+     * Constructor de CompositeUnit
+     * 
+     * @param leftUnit unidad fisica situada a la izquierda en la unidad compuesta
+     * @param operator relacion entre unidades izquierda y derecha
+     * @param rightUnit unidad fisica situada a la derecha en la unidad compuesta
+     */
     public CompositeUnit(IPhysicalUnit leftUnit, Operator operator, IPhysicalUnit rightUnit) {
         this.operator = operator;
         this.leftUnit = leftUnit;
@@ -69,9 +76,14 @@ public class CompositeUnit implements ICompositeUnit {
         return false;
     }
 
-
-
-    
+    /**
+     * Transforma la unidad d de la magnitud actual a la pasada como argumento
+     * solo si se trata de unidades compuestas y la conversion es posible
+     * 
+     * @param d : cantidad que queremos cambiar de magnitud
+     * @param u : unidad de medida a la cual queremos transformar
+     * @return : resultado de la transformacion
+     */
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
         if (!canTransformTo(u))
             throw new QuantityException("Quantities " + u.getQuantity() + " and " + getQuantity() + " are not compatible"); 
@@ -101,7 +113,8 @@ public class CompositeUnit implements ICompositeUnit {
     /**
      * Devuelve la abreviatura de la magnitud
      * 
-     * @return : atributo abbrev de la magnitud
+     * @return : abreviatuda de la unidad de la izquierda, el operador como simbolo y 
+     *           la abreviatura de la unidad de la derecha
      */
     public String abbrev() {
         return leftUnit.abbrev() + operator + rightUnit.abbrev();
@@ -119,7 +132,7 @@ public class CompositeUnit implements ICompositeUnit {
     /**
      * Devuelve el String formado por la abreviatura de la unidad compuesta
      * 
-     * @return : String formado por abbrev
+     * @return : String representando la unidad compuesta
      */
     @Override
     public String toString() {

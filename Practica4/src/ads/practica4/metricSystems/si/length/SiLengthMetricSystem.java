@@ -20,8 +20,10 @@ public class SiLengthMetricSystem extends AbstractMetricSystem {
     public static final IPhysicalUnit METER = new PhysicalUnit("m", 1, Quantity.LENGTH, SYSTEM);
     public static final IPhysicalUnit KILOMETER = new PhysicalUnit("km", 1000, Quantity.LENGTH, SYSTEM);
 
-    private SiLengthMetricSystem() {
-    }
+    /**
+     * Constructor privado que permite el patron Singleton
+     */
+    private SiLengthMetricSystem() { }
 
     /**
      * Devuelve la base del sistema actual

@@ -36,11 +36,7 @@ public class Magnitude implements IMagnitude {
      * @return : magnitud actual con la adicion realizada
      */
     public IMagnitude add(IMagnitude m) throws QuantityException {
-        try{
-            value += m.getUnit().transformTo(m.getValue(), unit);
-        }catch(QuantityException e){
-            System.out.println(e);
-        }
+        value += m.getUnit().transformTo(m.getValue(), unit);
         return this;
     }
 
@@ -52,11 +48,7 @@ public class Magnitude implements IMagnitude {
      * @return : magnitud actual con la sustraccion realizada
      */
     public IMagnitude subs(IMagnitude m) throws QuantityException {
-        try{
-            value -= m.getUnit().transformTo(m.getValue(), unit);
-        }catch(QuantityException e){
-            System.out.println(e);
-        }
+        value -= m.getUnit().transformTo(m.getValue(), unit);
         return this;
     }
 
@@ -79,11 +71,7 @@ public class Magnitude implements IMagnitude {
             }
         }
         else {
-            try{
-                value = unit.transformTo(value, c);
-            }catch(QuantityException e){
-                System.out.println(e);
-            }
+            value = unit.transformTo(value, c);
             unit = c;
         }
         return this;
@@ -91,6 +79,8 @@ public class Magnitude implements IMagnitude {
 
     /**
      * Establece la unidad de la magnitud
+     * 
+     * @param unit : unidad fisica de la magnitud
      */
     public void setUnit(IPhysicalUnit unit) {
         this.unit = unit;
@@ -98,6 +88,8 @@ public class Magnitude implements IMagnitude {
 
     /**
      * Establece el valor numerico de la magnitud
+     * 
+     * @param value : valor numerico de la magnitud
      */
     public void setValue(double value) {
         this.value = value;

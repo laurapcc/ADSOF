@@ -20,6 +20,9 @@ public class ImperialLengthMetricSystem extends AbstractMetricSystem {
     public static final IPhysicalUnit FOOT = new PhysicalUnit("ft", 1, Quantity.LENGTH, SYSTEM);
     public static final IPhysicalUnit MILE = new PhysicalUnit("mi", 5280, Quantity.LENGTH, SYSTEM);
 
+    /**
+     * Constructor privado que permite el patron Singleton
+     */
     private ImperialLengthMetricSystem() {}
 
     /**
