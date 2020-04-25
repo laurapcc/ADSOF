@@ -2,7 +2,8 @@ package ads.practica5.test;
 
 import java.util.*;
 
-import ads.practica5.graph.*;
+import ads.practica5.graph.Graph;
+import ads.practica5.elements.*;
 
 /**
  * Tester apartado1

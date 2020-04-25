@@ -1,5 +1,7 @@
 package ads.practica5.graph;
 
+import ads.practica5.elements.*;
+
 import java.util.*;
 
 /**
@@ -78,7 +80,7 @@ public class Graph<T, S> implements Collection<Node<T>> {
     public boolean isConnectedTo(Node<T> node, T info) {
         for (Edge<S> edge : edges) {
             if (node.equals(edge.getOrigin())) {
-                if (info.equals(edge.getDest().getInfo()))
+                if (info.equals(edge.getDest().getValue()))
                     return true;
             }
         }
@@ -113,7 +115,7 @@ public class Graph<T, S> implements Collection<Node<T>> {
         Collection<S> infoEdges = new HashSet<>();
         for (Edge<S> edge : edges) {
             if (n1.equals(edge.getOrigin()) && n2.equals(edge.getDest()))
-                infoEdges.add(edge.getInfo());
+                infoEdges.add(edge.getValue());
         }
         return infoEdges;
     }

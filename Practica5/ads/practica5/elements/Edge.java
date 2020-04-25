@@ -1,4 +1,4 @@
-package ads.practica5.graph;
+package ads.practica5.elements;
 
 /**
  * Clase Edge
@@ -43,7 +43,7 @@ public class Edge<S> {
      * 
      * @return : informacion
      */
-    public S getInfo(){
+    public S getValue(){
         return info;
     }
 

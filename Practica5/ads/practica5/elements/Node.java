@@ -1,6 +1,9 @@
-package ads.practica5.graph;
+package ads.practica5.elements;
+
+import ads.practica5.graph.Graph;
 
 import java.util.*;
+
 
 /**
  * Clase Node
@@ -41,7 +44,7 @@ public class Node<T> {
      * 
      * @return : informacion de tipo T
      */
-    public T getInfo() {
+    public T getValue() {
         return info;
     }
 
