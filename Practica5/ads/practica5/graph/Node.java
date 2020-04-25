@@ -63,13 +63,7 @@ public class Node<T> {
      * argumento, false en caso contrario
      */
     public boolean isConnectedTo(Node<T> node) {
-        for (Edge<?> edge : graph.getEdges()) {
-            if (equals(edge.getOrigin())) {
-                if (node.equals(edge.getDest()))
-                    return true;
-            }
-        }
-        return false;
+        return graph.isConnectedTo(this, node);
     }
 
     /**
@@ -81,13 +75,7 @@ public class Node<T> {
      * false en caso contrario
      */
     public boolean isConnectedTo(T info) {
-        for (Edge<?> edge : graph.getEdges()) {
-            if (equals(edge.getOrigin())) {
-                if (info.equals(edge.getDest().getInfo()))
-                    return true;
-            }
-        }
-        return false;
+        return graph.isConnectedTo(this, info);
     }
 
     /**
@@ -96,26 +84,17 @@ public class Node<T> {
      * @return : Collection conteniendo con los nodos vecinos
      */
     public Collection<Node<T>> neighbours() {
-        Collection<Node<T>> neighbours = new ArrayList<>();
-        for (Node<T> node : graph.getNodes()) {
-            if (isConnectedTo(node))
-                neighbours.add(node);
-        }
-        return neighbours;
+        return graph.neighbours(this);
     }
 
     /**
      * Crea una coleccion con los valores de las conexiones que tiene el nodo actual
      * 
+     * @param dest nodo destino
      * @return coleccion de valores de los enlaces
      */
-    public <V> Collection<? super V> getEdgeValues(Node<T> dest) {
-        Collection<? super V> infoEdges = new ArrayList<>();
-        for (Edge<?> edge : graph.getEdges()) {
-            if (equals(edge.getOrigin()) && dest.equals(edge.getDest()))
-                infoEdges.add((V)edge.getInfo());
-        }
-        return infoEdges;
+    public Collection<?> getEdgeValues(Node<T> dest) {
+        return graph.getEdgeValues(this, dest);
     }
 
     /**

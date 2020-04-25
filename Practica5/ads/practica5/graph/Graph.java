@@ -48,6 +48,77 @@ public class Graph<T, S> implements Collection<Node<T>> {
     }
 
     /**
+     * Comprueba si el nodo pasado como primer arguento esta conectado 
+     * al nodo cuya pasado como segundo argumento
+     * 
+     * @param n1 nodo origen
+     * @param n2 nodo destino
+     * @return true si el nodo n1 esta conectado al nodo n2, false en
+     * caso contrario
+     */
+    public boolean isConnectedTo(Node<T> n1, Node<T> n2) {
+        for (Edge<S> edge : edges) {
+            if (n1.equals(edge.getOrigin())) {
+                if (n2.equals(edge.getDest()))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Comprueba si el nodo pasado como primer arguento esta conectado 
+     * al nodo cuya informacion es pasada como segundo argumento
+     * 
+     * @param node nodo origen
+     * @param info informacion del nodo destino
+     * @return true si el nodo pasado como primer argumento esta conectado
+     * al que contiene info, false en caso contrario
+     */
+    public boolean isConnectedTo(Node<T> node, T info) {
+        for (Edge<S> edge : edges) {
+            if (node.equals(edge.getOrigin())) {
+                if (info.equals(edge.getDest().getInfo()))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Devuelve una lista de todos los nodos con los que está conectado el nodo
+     * pasado como argumento
+     * 
+     * @param node nodo del cual queremos ver sus vecinos
+     * @return : Collection conteniendo los nodos vecinos
+     */
+    public Collection<Node<T>> neighbours(Node<T> node) {
+        Collection<Node<T>> neighbours = new ArrayList<>();
+        for (Node<T> n : nodes) {
+            if (isConnectedTo(node, n))
+                neighbours.add(n);
+        }
+        return neighbours;
+    }
+
+    /**
+     * Crea una coleccion con los valores de las conexiones que tiene el primer nodo
+     * pasado como argumento con el segundo nodo pasado como argumento
+     * 
+     * @param n1 nodo origen
+     * @param n2 nodo destino
+     * @return coleccion de valores de los enlaces (sin repetidos)
+     */
+    public Collection<S> getEdgeValues(Node<T> n1, Node<T> n2) {
+        Collection<S> infoEdges = new HashSet<>();
+        for (Edge<S> edge : edges) {
+            if (n1.equals(edge.getOrigin()) && n2.equals(edge.getDest()))
+                infoEdges.add(edge.getInfo());
+        }
+        return infoEdges;
+    }
+
+    /**
      * Anade un nodo a la coleccion de nodos del grafo
      * 
      * @param arg0 nodo a anadir
