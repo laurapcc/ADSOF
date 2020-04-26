@@ -22,7 +22,7 @@ public class Apartado1 {
         
         g.addAll(Arrays.asList(n1, n2, n1)); // no admite repetidos, considerando igualdad referencial
         
-        g.connect(n1, 0, n1); /// conectamos n1 con n1 a través de enlace con valor 0
+        g.connect(n1, 0, n1); // conectamos n1 con n1 a través de enlace con valor 0
         g.connect(n1, 1, n2);
         g.connect(n1, 0, n2);
         g.connect(n2, 0, n1);

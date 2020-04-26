@@ -1,7 +1,7 @@
 package ads.practica5.comparator;
 
-import java.util.Comparator;
-import java.util.function.Predicate;
+import java.util.*;
+import java.util.function.*;
 
 import ads.practica5.elements.Node;
 import ads.practica5.graph.*;
@@ -14,18 +14,34 @@ import ads.practica5.graph.*;
  *
  */
 public class BlackBoxComparator<T, S> implements Comparator<ConstrainedGraph<T,S>> {
+    private Map<Criteria, Set<Predicate<Node<T>>>> criteria = new HashMap<>();
 
-    BlackBoxComparator<T,S> addCriteria(Criteria c, Predicate<Node<T>> p){
-        // TODO
-        return null;
+    public BlackBoxComparator<T,S> addCriteria(Criteria c, Predicate<Node<T>> p) {
+        if (criteria.containsKey(c)) {
+            criteria.get(c).add(p);
+        }
+        else {
+            Set<Predicate<Node<T>>> predicateSet = new HashSet<>();
+            predicateSet.add(p);
+            criteria.put(c, predicateSet);
+        }
+        return this;
     }
 
     @Override
     public int compare(ConstrainedGraph<T, S> o1, ConstrainedGraph<T, S> o2) {
-        // TODO Auto-generated method stub
-        return 0;
+        int o1cumple = 0;
+        int o2cumple = 0;
+
+        for (Criteria c : criteria.keySet()) {
+            for (Predicate<Node<T>> p : criteria.get(c)) {
+                if (c.test(o1, p))
+                    o1cumple++;
+                if (c.test(o2, p))
+                    o2cumple++;
+            }
+        }
+
+        return o1cumple-o2cumple;
     }
-
-
-    
 }

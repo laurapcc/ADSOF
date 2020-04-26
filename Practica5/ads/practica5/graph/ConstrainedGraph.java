@@ -15,12 +15,12 @@ import ads.practica5.elements.*;
  */
 public class ConstrainedGraph<T, S> extends Graph<T, S> {
 
-    Optional<Node<T>> witness = null;
+    Optional<Node<T>> witness;
 
     public Optional<Node<T>> getWitness(){
         return witness;
     }
-
+    
     /**
      * Comprueba si todos los nodos del grafo cumplen un predicado
      * 
@@ -49,10 +49,7 @@ public class ConstrainedGraph<T, S> extends Graph<T, S> {
      * @return true si al menos un nodo cumple el predicado
      */
     public boolean exists(Predicate<Node<T>> p){
-        if(getNodes().stream().anyMatch(p)){
-            witness = getNodes().stream().findFirst(); //! hay que darle un valor a optional pero que valor?
-            return true;
-        }
-        return false;
+        witness = getNodes().stream().filter(p).findFirst();
+        return witness.isPresent();
     }
 }
