@@ -17,6 +17,11 @@ public class ConstrainedGraph<T, S> extends Graph<T, S> {
 
     Optional<Node<T>> witness;
 
+    /**
+     * Devuelve el nodo testigo como un objeto opcional
+     * 
+     * @return : testigo opcional
+     */
     public Optional<Node<T>> getWitness(){
         return witness;
     }
