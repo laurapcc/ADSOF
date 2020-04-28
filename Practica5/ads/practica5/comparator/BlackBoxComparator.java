@@ -11,6 +11,11 @@ import ads.practica5.graph.*;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
+ * 
+ * @param <T> tipo de dato generico que representa el valor del
+ * nodo
+ * @param <S> tipo de dato generico que representa el valor del
+ * enlace
  *
  */
 public class BlackBoxComparator<T, S> implements Comparator<ConstrainedGraph<T,S>> {

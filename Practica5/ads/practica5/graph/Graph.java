@@ -10,6 +10,11 @@ import java.util.stream.Collectors;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
+ * 
+ * @param <T> tipo de dato generico que representa el valor del
+ * nodo
+ * @param <S> tipo de dato generico que representa el valor del
+ * enlace
  *
  */
 public class Graph<T, S> implements Collection<Node<T>> {

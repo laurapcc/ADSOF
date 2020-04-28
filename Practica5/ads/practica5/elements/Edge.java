@@ -5,7 +5,10 @@ package ads.practica5.elements;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
+ * 
+ * @param <S> tipo de dato generico que representa el valor
+ * del enlace
+ * 
  */
 public class Edge<S> {
 

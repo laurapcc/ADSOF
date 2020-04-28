@@ -9,6 +9,8 @@ import ads.practica5.rules.Rule;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
+ * 
+ * @param <T> objeto parametrizado
  *
  */
 public class Sequence<T> implements Strategy<T> {

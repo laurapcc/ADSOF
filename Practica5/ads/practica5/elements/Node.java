@@ -10,7 +10,10 @@ import java.util.*;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
+ * 
+ * @param <T> tipo de dato generico que representa el valor de
+ * nodo
+ * 
  */
 public class Node<T> {
 

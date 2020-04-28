@@ -1,31 +1,33 @@
 package ads.practica5.rules;
 
-import java.util.function.*;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
+import ads.practica5.observers.Observer;
+import ads.practica5.observers.Observable;
 
 /**
- * Clase Rule
+ * Clase TriggeredRule
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- * 
+ *
  * @param <T> objeto parametrizado
  */
-public class Rule<T> implements IRule<T> {
+public class TriggeredRule<T extends Observable> implements IRule<T>, Observer {
 
     private String name;
-    private String desc;
     private Predicate<T> predicate;
     private Consumer<T> consumer;
+    private T elem;
 
     /**
      * Constructor privado de la clase Rule
      * 
      * @param name nombre de la regla
-     * @param desc descripcion de la regla
      */
-    private Rule(String name, String desc) {
+    private TriggeredRule(String name) {
         this.name = name;
-        this.desc = desc;
     }
     
     /**
@@ -33,11 +35,26 @@ public class Rule<T> implements IRule<T> {
      * 
      * @param <T> dato parametrizado
      * @param name nombre de la regla
-     * @param desc descripcion de la regla
      * @return nueva regla creada
      */
-    public static <T> Rule<T> rule(String name, String desc) {
-        return new Rule<T>(name, desc);
+    public static <T extends Observable> TriggeredRule<T> trigRule(String name) {
+        return new TriggeredRule<T>(name);
+    }
+
+    /**
+     * Añade un trigger al TriggeredRule
+     * 
+     * @param elem  elemento sobre el que se realizara el trigger
+     * @param field nombre del atributo del elemento sobre el que se realizara el
+     *              trigger
+     * @return regla con el trigger actualizado
+     * @throws SecurityException
+     * @throws NoSuchFieldException
+     */
+    public TriggeredRule<T> trigger(T elem, String field) throws NoSuchFieldException, SecurityException {
+        this.elem = elem;
+        elem.attach(this, field);
+        return this;
     }
 
     /**
@@ -47,15 +64,6 @@ public class Rule<T> implements IRule<T> {
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * Devuelve la descripcion de la regla
-     * 
-     * @return desc
-     */
-    public String getDesc() {
-        return desc;
     }
 
     /**
@@ -82,7 +90,8 @@ public class Rule<T> implements IRule<T> {
      * @param p predicado
      * @return regla con el predicado actualizado
      */
-    public Rule<T> when(Predicate<T> p) {
+    @Override
+    public TriggeredRule<T> when(Predicate<T> p) {
         this.predicate = p;
         return this;
     }
@@ -93,8 +102,19 @@ public class Rule<T> implements IRule<T> {
      * @param c consumible
      * @return regla con el consumible actualizado
      */
-    public Rule<T> exec(Consumer<T> c) {
+    @Override
+    public TriggeredRule<T> exec(Consumer<T> c) {
         this.consumer = c;
         return this;
+    }
+
+    /**
+     * Metodo invocado cuando se produce algun cambio
+     * en el objeto observado
+     */
+    @Override
+    public void update() {
+        if (predicate.test(elem))
+            consumer.accept(elem);
     }
 }
