@@ -22,7 +22,7 @@ public class Rule<T> {
      * @param name nombre de la regla
      * @param desc descripcion de la regla
      */
-    private Rule(String name, String desc){
+    private Rule(String name, String desc) {
         this.name = name;
         this.desc = desc;
     }
@@ -35,8 +35,26 @@ public class Rule<T> {
      * @param desc descripcion de la regla
      * @return nueva regla creada
      */
-    public static <T> Rule<T> rule(String name, String desc){
+    public static <T> Rule<T> rule(String name, String desc) {
         return new Rule<T>(name, desc);
+    }
+
+    /**
+     * Devuelve el nombre de la regla
+     * 
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Devuelve la descripcion de la regla
+     * 
+     * @return desc
+     */
+    public String getDesc() {
+        return desc;
     }
 
     /**
@@ -63,7 +81,7 @@ public class Rule<T> {
      * @param p predicado
      * @return regla con el predicado actualizado
      */
-    public Rule<T> when (Predicate<T> p){
+    public Rule<T> when(Predicate<T> p) {
         this.predicate = p;
         return this;
     }
@@ -74,7 +92,7 @@ public class Rule<T> {
      * @param c consumible
      * @return regla con el consumible actualizado
      */
-    public Rule<T> exec (Consumer<T> c){
+    public Rule<T> exec(Consumer<T> c) {
         this.consumer = c;
         return this;
     }

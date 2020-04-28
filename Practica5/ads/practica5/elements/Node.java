@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Node<T> {
 
-    private T info;
+    private T value;
     private Graph<T, ?> graph;
     private int id;
     static private int nextval = 0;
@@ -22,10 +22,10 @@ public class Node<T> {
     /**
      * Constructor de la clase Node
      * 
-     * @param info informacion del nodo
+     * @param value valor del nodo
      */
-    public Node(T info){
-        this.info = info;
+    public Node(T value) {
+        this.value = value;
         id = nextval;
         nextval++;
     }
@@ -40,12 +40,21 @@ public class Node<T> {
     }
 
     /**
-     * Devuelve la información que contiene el nodo
+     * Establece el valor que contiene el nodo
      * 
-     * @return : informacion de tipo T
+     * @param value valor del nodo
+     */
+	public void setValue(T value) {
+		this.value = value;
+	}
+
+    /**
+     * Devuelve el valor del nodo
+     * 
+     * @return : value de tipo T
      */
     public T getValue() {
-        return info;
+        return value;
     }
 
     /**
@@ -70,15 +79,15 @@ public class Node<T> {
     }
 
     /**
-     * Comprueba si el nodo actual esta conectado al nodo cuya informacion es 
+     * Comprueba si el nodo actual esta conectado al nodo cuyo valor es 
      * pasada como argumento
      * 
-     * @param info informacion del nodo destino
-     * @return true si el nodo actual esta conectado al que contiene info,
+     * @param value valor del nodo detino
+     * @return true si el nodo actual esta conectado al que contiene el valor,
      * false en caso contrario
      */
-    public boolean isConnectedTo(T info) {
-        return graph.isConnectedTo(this, info);
+    public boolean isConnectedTo(T value) {
+        return graph.isConnectedTo(this, value);
     }
 
     /**
@@ -91,12 +100,13 @@ public class Node<T> {
     }
 
     /**
-     * Crea una coleccion con los valores de las conexiones que tiene el nodo actual
+     * Crea una lista con los valores de las conexiones que tiene el nodo actual
+     * sin incluir repetidos
      * 
      * @param dest nodo destino
-     * @return coleccion de valores de los enlaces
+     * @return lista de valores de los enlaces
      */
-    public Collection<?> getEdgeValues(Node<T> dest) {
+    public List<?> getEdgeValues(Node<T> dest) {
         return graph.getEdgeValues(this, dest);
     }
 
@@ -106,6 +116,6 @@ public class Node<T> {
      * @return : String
      */
     public String toString() {
-        return id + " [" + info + "]";
+        return id + " [" + value + "]";
     }
 }

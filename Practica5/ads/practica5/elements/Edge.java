@@ -9,14 +9,20 @@ package ads.practica5.elements;
  */
 public class Edge<S> {
 
-    private S info;
+    private S value;
     Node<?> n1;
     Node<?> n2;
-    //edges del tipo del segundo generico de graph
 
-    public Edge(Node<?> n1, S info, Node<?> n2){
+    /**
+     * Constructor de la clase Edge
+     * 
+     * @param n1 nodo origen del enlace
+     * @param value valor del enlace
+     * @param n2 nodo destino del enlace
+     */
+    public Edge(Node<?> n1, S value, Node<?> n2){
         this.n1 = n1;
-        this.info = info;
+        this.value = value;
         this.n2 = n2;
     }
 
@@ -39,12 +45,12 @@ public class Edge<S> {
     }
 
     /**
-     * Devuelve la informacion correspondiente al enlace actual
+     * Devuelve el valor correspondiente al enlace actual
      * 
      * @return : informacion
      */
     public S getValue(){
-        return info;
+        return value;
     }
 
     /**
@@ -54,7 +60,7 @@ public class Edge<S> {
      */
     @Override
     public String toString() {
-        String cadena = "( " + n1.getId() + " --" + info.toString() + "--> " + n2.getId() + " )";
+        String cadena = "( " + n1.getId() + " --" + value.toString() + "--> " + n2.getId() + " )";
         return cadena;
     }
 }

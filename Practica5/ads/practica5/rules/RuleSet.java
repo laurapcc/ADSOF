@@ -20,7 +20,7 @@ public class RuleSet<T> {
      * @param rule regla
      * @return conjunto de reglas actualizado
      */
-    public RuleSet<T> add(Rule<T> rule){
+    public RuleSet<T> add(Rule<T> rule) {
         rules.add(rule);
         return this;
     }
@@ -30,16 +30,16 @@ public class RuleSet<T> {
      * 
      * @param context contexto
      */
-    public void setExecContext(Collection<T> context){
+    public void setExecContext(Collection<T> context) {
         this.context = context;
     }
 
     /**
      * Procesa el conjunto de reglas sobre el contexto establecido
      */
-    public void process(){
-        for (T elem: context){
-            for (Rule<T> rule: rules){
+    public void process() {
+        for (T elem: context) {
+            for (Rule<T> rule: rules) {
                 if (rule.getPredicate().test(elem))
                     rule.getConsumer().accept(elem);
             }

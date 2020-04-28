@@ -70,17 +70,17 @@ public class Graph<T, S> implements Collection<Node<T>> {
 
     /**
      * Comprueba si el nodo pasado como primer arguento esta conectado 
-     * al nodo cuya informacion es pasada como segundo argumento
+     * al nodo cuyo valor es pasada como segundo argumento
      * 
      * @param node nodo origen
-     * @param info informacion del nodo destino
+     * @param value valor del nodo destino
      * @return true si el nodo pasado como primer argumento esta conectado
-     * al que contiene info, false en caso contrario
+     * al que contiene el valor, false en caso contrario
      */
-    public boolean isConnectedTo(Node<T> node, T info) {
+    public boolean isConnectedTo(Node<T> node, T value) {
         for (Edge<S> edge : edges) {
             if (node.equals(edge.getOrigin())) {
-                if (info.equals(edge.getDest().getValue()))
+                if (value.equals(edge.getDest().getValue()))
                     return true;
             }
         }
@@ -104,20 +104,30 @@ public class Graph<T, S> implements Collection<Node<T>> {
     }
 
     /**
-     * Crea una coleccion con los valores de las conexiones que tiene el primer nodo
+     * Crea una lista con los valores de las conexiones que tiene el primer nodo
      * pasado como argumento con el segundo nodo pasado como argumento
      * 
      * @param n1 nodo origen
      * @param n2 nodo destino
-     * @return coleccion de valores de los enlaces (sin repetidos)
+     * @return lista de valores de los enlaces (sin repetidos)
      */
-    public Collection<S> getEdgeValues(Node<T> n1, Node<T> n2) {
-        Collection<S> infoEdges = new HashSet<>();
+    public List<S> getEdgeValues(Node<T> n1, Node<T> n2) {
+        List<S> valueEdges = new ArrayList<>();
+        boolean exist;
+
         for (Edge<S> edge : edges) {
-            if (n1.equals(edge.getOrigin()) && n2.equals(edge.getDest()))
-                infoEdges.add(edge.getValue());
+            if (n1.equals(edge.getOrigin()) && n2.equals(edge.getDest())) {
+                exist = false;
+                for (S value : valueEdges) {
+                    if (value.equals(edge.getValue()))
+                        exist = true;
+                }
+                if (!exist)
+                    valueEdges.add(edge.getValue());
+            }
         }
-        return infoEdges;
+
+        return valueEdges;
     }
 
     /**
