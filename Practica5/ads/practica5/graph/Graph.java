@@ -3,6 +3,7 @@ package ads.practica5.graph;
 import ads.practica5.elements.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Clase Graph
@@ -112,22 +113,15 @@ public class Graph<T, S> implements Collection<Node<T>> {
      * @return lista de valores de los enlaces (sin repetidos)
      */
     public List<S> getEdgeValues(Node<T> n1, Node<T> n2) {
-        List<S> valueEdges = new ArrayList<>();
-        boolean exist;
+        Set<S> valueEdges = new HashSet<>();
 
         for (Edge<S> edge : edges) {
             if (n1.equals(edge.getOrigin()) && n2.equals(edge.getDest())) {
-                exist = false;
-                for (S value : valueEdges) {
-                    if (value.equals(edge.getValue()))
-                        exist = true;
-                }
-                if (!exist)
-                    valueEdges.add(edge.getValue());
+                valueEdges.add(edge.getValue());
             }
         }
 
-        return valueEdges;
+        return valueEdges.stream().collect(Collectors.toList());
     }
 
     /**

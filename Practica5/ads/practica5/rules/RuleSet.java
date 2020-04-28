@@ -15,6 +15,24 @@ public class RuleSet<T> {
     private Collection<T> context;
 
     /**
+     * Devuelve el conjunto de reglas añadidas
+     * 
+     * @return lista con las reglas previamente añadidas
+     */
+    public List<Rule<T>> getRules(){
+        return this.rules;
+    }
+
+    /**
+     * Devuelve el contexo del conjunto de reglas     
+     * 
+     * @return contexto del RuleSet
+     */
+    public Collection<T> getContext(){
+        return this.context;
+    }
+
+    /**
      * Anade una regla al conjunto de reglas
      * 
      * @param rule regla
