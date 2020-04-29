@@ -11,7 +11,6 @@ import java.util.*;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public class Apartado2 {
     public static void main(String[] args) {

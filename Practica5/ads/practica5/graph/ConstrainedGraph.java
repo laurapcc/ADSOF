@@ -16,11 +16,10 @@ import ads.practica5.elements.*;
  * nodo
  * @param <S> tipo de dato generico que representa el valor del
  * enlace
- *
  */
 public class ConstrainedGraph<T, S> extends Graph<T, S> {
 
-    Optional<Node<T>> witness;
+    private Optional<Node<T>> witness;
 
     /**
      * Devuelve el nodo testigo como un objeto opcional

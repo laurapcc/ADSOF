@@ -10,7 +10,6 @@ import java.util.function.Predicate;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public enum Criteria {
     EXISTENTIAL, UNITARY, UNIVERSAL;

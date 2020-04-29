@@ -11,7 +11,6 @@ import ads.practica5.observers.Observer;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public class Producto implements Observable {
 

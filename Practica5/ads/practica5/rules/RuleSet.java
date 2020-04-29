@@ -9,7 +9,6 @@ import java.util.*;
  * @author Rubén García ruben.garciadelafuente@uam.es
  * 
  * @param <T> objeto parametrizado
- *
  */
 public class RuleSet<T> {
 

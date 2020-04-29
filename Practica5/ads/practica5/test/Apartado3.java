@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public class Apartado3 {
     public static void main(String...args) throws ParseException{

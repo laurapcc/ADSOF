@@ -13,7 +13,6 @@ import java.util.*;
  * 
  * @param <T> tipo de dato generico que representa el valor de
  * nodo
- * 
  */
 public class Node<T> {
 

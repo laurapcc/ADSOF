@@ -9,7 +9,6 @@ import ads.practica5.strategies.Strategy;
  * @author Rubén García ruben.garciadelafuente@uam.es
  * 
  * @param <T> objeto parametrizado
- *
  */
 public class RuleSetWithStrategy<T> extends RuleSet<T>{
 

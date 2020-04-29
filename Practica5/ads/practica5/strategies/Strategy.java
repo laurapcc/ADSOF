@@ -11,7 +11,6 @@ import ads.practica5.rules.Rule;
  * @author Rubén García ruben.garciadelafuente@uam.es
  * 
  * @param <T> objeto parametrizado
- *
  */
 public interface Strategy<T> {
 

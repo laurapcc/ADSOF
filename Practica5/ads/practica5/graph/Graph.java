@@ -15,12 +15,11 @@ import java.util.stream.Collectors;
  * nodo
  * @param <S> tipo de dato generico que representa el valor del
  * enlace
- *
  */
 public class Graph<T, S> implements Collection<Node<T>> {
 
-    Set<Node<T>> nodes = new HashSet<>();
-    List<Edge<S>> edges = new ArrayList<>();
+    private Set<Node<T>> nodes = new LinkedHashSet<>();
+    private List<Edge<S>> edges = new ArrayList<>();
     
     /**
      * Devuelve la lista de enlaces pertenecientes al grafo
@@ -118,7 +117,7 @@ public class Graph<T, S> implements Collection<Node<T>> {
      * @return lista de valores de los enlaces (sin repetidos)
      */
     public List<S> getEdgeValues(Node<T> n1, Node<T> n2) {
-        Set<S> valueEdges = new HashSet<>();
+        Set<S> valueEdges = new LinkedHashSet<>();
 
         for (Edge<S> edge : edges) {
             if (n1.equals(edge.getOrigin()) && n2.equals(edge.getDest())) {

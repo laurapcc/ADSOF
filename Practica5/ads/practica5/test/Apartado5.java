@@ -12,7 +12,6 @@ import ads.practica5.rules.TriggeredRule;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public class Apartado5 {
     public static void main(String[] args) throws ParseException, NoSuchFieldException, SecurityException {

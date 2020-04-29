@@ -8,13 +8,12 @@ package ads.practica5.elements;
  * 
  * @param <S> tipo de dato generico que representa el valor
  * del enlace
- * 
  */
 public class Edge<S> {
 
     private S value;
-    Node<?> n1;
-    Node<?> n2;
+    private Node<?> n1;
+    private Node<?> n2;
 
     /**
      * Constructor de la clase Edge

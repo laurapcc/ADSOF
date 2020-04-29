@@ -5,7 +5,6 @@ package ads.practica5.observers;
  * 
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public interface Observer {
 

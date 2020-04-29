@@ -12,7 +12,6 @@ import ads.practica5.strategies.AsLongAsPossible;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public class Apartado4 {
     public static void main(String[] args) {

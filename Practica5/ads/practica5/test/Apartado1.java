@@ -10,7 +10,6 @@ import ads.practica5.elements.*;
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es
- *
  */
 public class Apartado1 {
 

@@ -16,7 +16,6 @@ import ads.practica5.graph.*;
  * nodo
  * @param <S> tipo de dato generico que representa el valor del
  * enlace
- *
  */
 public class BlackBoxComparator<T, S> implements Comparator<ConstrainedGraph<T,S>> {
     private Map<Criteria, Set<Predicate<Node<T>>>> criteria = new HashMap<>();
@@ -33,7 +32,7 @@ public class BlackBoxComparator<T, S> implements Comparator<ConstrainedGraph<T,S
             criteria.get(c).add(p);
         }
         else {
-            Set<Predicate<Node<T>>> predicateSet = new HashSet<>();
+            Set<Predicate<Node<T>>> predicateSet = new LinkedHashSet<>();
             predicateSet.add(p);
             criteria.put(c, predicateSet);
         }
