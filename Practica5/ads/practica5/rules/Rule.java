@@ -82,6 +82,7 @@ public class Rule<T> implements IRule<T> {
      * @param p predicado
      * @return regla con el predicado actualizado
      */
+    @Override
     public Rule<T> when(Predicate<T> p) {
         this.predicate = p;
         return this;
@@ -93,6 +94,7 @@ public class Rule<T> implements IRule<T> {
      * @param c consumible
      * @return regla con el consumible actualizado
      */
+    @Override
     public Rule<T> exec(Consumer<T> c) {
         this.consumer = c;
         return this;

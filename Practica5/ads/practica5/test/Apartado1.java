@@ -6,7 +6,7 @@ import ads.practica5.graph.Graph;
 import ads.practica5.elements.*;
 
 /**
- * Tester apartado1
+ * Tester apartado 1
  *
  * @author Laura de Paz laura.pazc@uam.es
  * @author Rubén García ruben.garciadelafuente@uam.es

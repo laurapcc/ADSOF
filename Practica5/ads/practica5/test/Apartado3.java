@@ -6,6 +6,13 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Tester apartado 3
+ *
+ * @author Laura de Paz laura.pazc@uam.es
+ * @author Rubén García ruben.garciadelafuente@uam.es
+ *
+ */
 public class Apartado3 {
     public static void main(String...args) throws ParseException{
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

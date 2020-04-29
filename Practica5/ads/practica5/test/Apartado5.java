@@ -7,6 +7,13 @@ import java.util.concurrent.TimeUnit;
 
 import ads.practica5.rules.TriggeredRule;
 
+/**
+ * Tester apartado 5
+ *
+ * @author Laura de Paz laura.pazc@uam.es
+ * @author Rubén García ruben.garciadelafuente@uam.es
+ *
+ */
 public class Apartado5 {
     public static void main(String[] args) throws ParseException, NoSuchFieldException, SecurityException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

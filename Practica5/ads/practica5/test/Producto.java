@@ -85,6 +85,7 @@ public class Producto implements Observable {
      * Añade un observador para que observe al propio objeto
      * 
      * @param observer observador
+     * @param field campo que se esta observando
      */
     @Override
     public void attach(Observer observer, String field) {
@@ -95,7 +96,7 @@ public class Producto implements Observable {
      * Notifica algun cambio producido en el objeto a todos los
      * observadores
      * 
-     * @param 
+     * @param field campo que se esta observando
      */
     @Override
     public void notifyAllObservers(String field) {

@@ -7,6 +7,13 @@ import ads.practica5.graph.ConstrainedGraph;
 import ads.practica5.rules.*;
 import ads.practica5.strategies.AsLongAsPossible;
 
+/**
+ * Tester apartado 4
+ *
+ * @author Laura de Paz laura.pazc@uam.es
+ * @author Rubén García ruben.garciadelafuente@uam.es
+ *
+ */
 public class Apartado4 {
     public static void main(String[] args) {
         final int INIT_CONSTANT = 1000;

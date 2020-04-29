@@ -6,6 +6,13 @@ import ads.practica5.elements.*;
 
 import java.util.*;
 
+/**
+ * Tester apartado 2
+ *
+ * @author Laura de Paz laura.pazc@uam.es
+ * @author Rubén García ruben.garciadelafuente@uam.es
+ *
+ */
 public class Apartado2 {
     public static void main(String[] args) {
         /* Apartado a */
