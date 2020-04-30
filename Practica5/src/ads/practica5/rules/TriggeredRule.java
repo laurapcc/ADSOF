@@ -48,10 +48,8 @@ public class TriggeredRule<T extends Observable> implements IRule<T>, Observer {
      * @param field nombre del atributo del elemento sobre el que se realizara el
      *              trigger
      * @return regla con el trigger actualizado
-     * @throws SecurityException
-     * @throws NoSuchFieldException
      */
-    public TriggeredRule<T> trigger(T elem, String field) throws NoSuchFieldException, SecurityException {
+    public TriggeredRule<T> trigger(T elem, String field) {
         this.elem = elem;
         elem.attach(this, field);
         return this;

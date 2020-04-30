@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"ads.practica5.comparator"},{"l":"ads.practica5.elements"},{"l":"ads.practica5.graph"},{"l":"ads.practica5.observers"},{"l":"ads.practica5.rules"},{"l":"ads.practica5.strategies"},{"l":"ads.practica5.test"},{"l":"All Packages","url":"allpackages-index.html"}]
