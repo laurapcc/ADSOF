@@ -57,12 +57,9 @@ public class RuleSet<T> {
      * Procesa el conjunto de reglas sobre el contexto establecido
      */
     public void process() {
-        for (T elem: context) {
-            for (Rule<T> rule: rules) {
-                if (rule.getPredicate().test(elem))
-                    rule.getConsumer().accept(elem);
-            }
-        }
+        context.stream().forEach(c -> rules.stream()
+                                            .filter(r -> r.getPredicate().test(c))
+                                            .forEach(r -> r.getConsumer().accept(c)));
     }
 
 }

@@ -23,12 +23,9 @@ public class Sequence<T> implements Strategy<T> {
      */
     @Override
     public void process(List<Rule<T>> rules, Collection<T> context) {
-        for (T elem : context) {
-            for (Rule<T> rule : rules) {
-                if (rule.getPredicate().test(elem))
-                    rule.getConsumer().accept(elem);
-            }
-        }
+        context.stream().forEach(c -> rules.stream()
+                                            .filter(r -> r.getPredicate().test(c))
+                                            .forEach(r -> r.getConsumer().accept(c)));
     }
 
 }
