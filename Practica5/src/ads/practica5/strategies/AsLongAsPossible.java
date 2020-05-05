@@ -22,13 +22,11 @@ public class AsLongAsPossible<T> implements Strategy<T> {
      * @param context contexto sobre el que se aplica el conjunto de reglas
      */
     @Override
-    public void process(List<Rule<T>> rules, Collection<T> context) {                                        
-        for (T elem : context) {
-            for (Rule<T> rule : rules) {
-                while (rule.getPredicate().test(elem))
-                    rule.getConsumer().accept(elem);
-            }
-        }
+    public void process(List<Rule<T>> rules, Collection<T> context) {   
+        context.stream().forEach(c -> rules.stream().forEach(r -> { 
+            while (r.getPredicate().test(c))
+                r.getConsumer().accept(c);
+            }));
     }
 
 }
